@@ -14,3 +14,6 @@ $routes->get('/login', 'Login::index');
 $routes->get('/register', 'Login::register');
 $routes->post('/registro-de-usuarios', 'Login::guardar');
 $routes->post('/inicio-de-usuarios', 'Login::iniciar');
+$routes->get('/estudiantes', 'EstudiantesController::index');
+$routes->get('/create', 'EstudiantesController::register');
+$routes->post('/registro-de-estudiantes', 'EstudiantesController::guardar');
