@@ -39,4 +39,51 @@ class EstudiantesController extends BaseController
         return redirect()->to(base_url()."public/estudiantes");
     }
 
+    public function editar($id){
+        $estudiante = new Estudiantes();
+        $datos_estudiante = $estudiante->find($id);
+
+        if ($datos_estudiante) {
+            return view('estudiantes/edit', ['estudiante' => $datos_estudiante]);
+        } 
+        else {
+            return redirect()->to(base_url()."public/estudiantes");
+        }
+    }
+
+    public function actualizar($id){
+        $id = $this->request->getPost('id');
+        $estudiante = new Estudiantes();
+        $datos_estudiante = $estudiante->find($id);
+        
+        if ($datos_estudiante) {
+            
+            $nuevos_datos = [
+                'nombres' => $this->request->getPost('nombres'),
+                'apellidos' => $this->request->getPost('apellidos'),
+                'email' => $this->request->getPost('email'),
+                'fecha_nacimiento' => $this->request->getPost('fecha_nacimiento'),
+                'direccion' => $this->request->getPost('direccion')
+            ];
+            $estudiante->update($id, $nuevos_datos);
+            return redirect()->to(base_url()."public/estudiantes");
+        }
+        else {
+            return redirect()->to(base_url()."public/estudiantes/index");
+        }
+    }
+
+    public function eliminar($id){
+        $estudiante = new Estudiantes();
+        $datos_estudiante = $estudiante->find($id);
+
+        if($datos_estudiante){
+            $estudiante->delete($id);
+            return redirect()->to(base_url()."public/estudiantes");
+        }
+        else {
+            return redirect()->to(base_url()."public/estudiantes");
+        }
+    }
+
 }
