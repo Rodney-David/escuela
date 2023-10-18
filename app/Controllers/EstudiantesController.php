@@ -21,22 +21,20 @@ class EstudiantesController extends BaseController
 
     public function guardar(){
         $mestudiantes = new Estudiantes();
-        $nombres = $this->request->getPost('nombres');
-        $apellidos = $this->request->getPost('apellidos');
-        $email = $this->request->getPost('email');
-        $fecha_nacimiento = $this->request->getPost('fecha_nacimiento');
-        $direccion = $this->request->getPost('direccion');
 
-        $data = [
-            'nombres' => $nombres,
-            'apellidos' => $apellidos,
-            'email' => $email,
-            'fecha_nacimiento' => $fecha_nacimiento,
-            'direccion' => $direccion,
-        ];
-    
-        $mestudiantes->save($data);
-        return redirect()->to(base_url()."public/estudiantes");
+        if($this->validate('estudiantes')){
+            $mestudiantes->insert(
+                [
+                    'nombres' => $this->request->getPost('nombres'),
+                    'apellidos' => $this->request->getPost('apellidos'),
+                    'email' => $this->request->getPost('email'),
+                    'fecha_nacimiento' => $this->request->getPost('fecha_nacimiento'),
+                    'direccion' => $this->request->getPost('direccion'),
+                ]
+            ); 
+            return redirect()->to(base_url()."public/estudiantes");
+        }
+        return redirect()->back();
     }
 
     public function editar($id){
@@ -53,23 +51,26 @@ class EstudiantesController extends BaseController
 
     public function actualizar($id){
         $id = $this->request->getPost('id');
-        $estudiante = new Estudiantes();
-        $datos_estudiante = $estudiante->find($id);
+        $mestudiantes = new Estudiantes();
+        $datos_estudiante = $mestudiantes->find($id);
         
         if ($datos_estudiante) {
-            
-            $nuevos_datos = [
-                'nombres' => $this->request->getPost('nombres'),
-                'apellidos' => $this->request->getPost('apellidos'),
-                'email' => $this->request->getPost('email'),
-                'fecha_nacimiento' => $this->request->getPost('fecha_nacimiento'),
-                'direccion' => $this->request->getPost('direccion')
-            ];
-            $estudiante->update($id, $nuevos_datos);
-            return redirect()->to(base_url()."public/estudiantes");
+            if($this->validate('estudiantes')){
+                $mestudiantes->update($id,
+                    [
+                        'nombres' => $this->request->getPost('nombres'),
+                        'apellidos' => $this->request->getPost('apellidos'),
+                        'email' => $this->request->getPost('email'),
+                        'fecha_nacimiento' => $this->request->getPost('fecha_nacimiento'),
+                        'direccion' => $this->request->getPost('direccion'),
+                    ]
+                ); 
+                return redirect()->to(base_url()."public/estudiantes");
+            }
+            return redirect()->back();
         }
         else {
-            return redirect()->to(base_url()."public/estudiantes/index");
+            return redirect()->to(base_url()."public/estudiantes");
         }
     }
 

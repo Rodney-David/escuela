@@ -1,7 +1,7 @@
 <?= $this->extend('template/index') ?>
 <?= $this->section('content') ?>
 <h1>AÑADIR ESTUDIANTE</h1>
-<form method="post" action="<?= base_url()."public/registro-de-estudiantes" ?>">
+<form method="post" action="<?= base_url()."public/registro-de-estudiantes" ?>" >
     <div class="form-floating mb-3">
         <input type="text" class="form-control" name="nombres" id="nombres" required>
         <label for="floatingInput">Nombres</label>

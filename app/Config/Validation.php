@@ -41,4 +41,23 @@ class Validation extends BaseConfig
     // --------------------------------------------------------------------
     // Rules
     // --------------------------------------------------------------------
+    public $estudiantes = [
+        'nombres' => 'required|min_length[3]|max_length[50]|regex_match[/^[\pL\sñÑáéíóúÁÉÍÓÚüÜ]+$/u]',
+        'apellidos' => 'required|min_length[3]|max_length[50]',
+        'email' => 'required|valid_email',
+        'fecha_nacimiento' => 'required|valid_date[Y-m-d]',
+        'direccion' => 'required|min_length[5]|max_length[100]|regex_match[/^[\pL\sñÑáéíóúÁÉÍÓÚüÜ0-9\-]+$/u]',
+    ];
+
+    public $users = [
+        'nombres' => 'required|min_length[3]|max_length[50]|regex_match[/^[\pL\sñÑáéíóúÁÉÍÓÚüÜ]+$/u]',
+        'username' => 'required|min_length[4]|max_length[20]|regex_match[/^[\pL\sñÑáéíóúÁÉÍÓÚüÜ0-9\-]+$/u]',
+        'password' => 'required|min_length[8]|regex_match[/^[\pL\sñÑáéíóúÁÉÍÓÚüÜ0-9\-]+$/u]',
+        'email' => 'required|valid_email',
+    ];
+
+    public $login = [
+        'username' => 'required',
+        'password' => 'required',
+    ];
 }
