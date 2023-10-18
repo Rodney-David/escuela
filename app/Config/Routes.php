@@ -20,3 +20,4 @@ $routes->post('/registro-de-estudiantes', 'EstudiantesController::guardar');
 $routes->get('/editar/(:num)', 'EstudiantesController::editar/$1');
 $routes->post('/editar_estudiantes/(:num)', 'EstudiantesController::actualizar/$1');
 $routes->get('/eliminar/(:num)', 'EstudiantesController::eliminar/$1');
+$routes->get('/session', 'Login::session');

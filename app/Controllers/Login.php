@@ -46,27 +46,32 @@ class Login extends BaseController
     
         $datosUsuario = $musers->obtenerUsuario($username);
 
-        if($datosUsuario){
-            if($this->validate('login')){
-                if ($datosUsuario != null && password_verify($password, $datosUsuario['password'])){
-                    $data = ['usuario' => $datosUsuario[0]['username'], "type" => $datosUsuario[0]['type']];
-                    $session = session();
-                    $session->set($data);
-                    return redirect()->to(base_url()."public/dashboard/index");
-                }else{
-                    return redirect()->to(base_url()."public/login/index");
-                }
+        if($datosUsuario && $this->validate('login')){
+            if ($datosUsuario != null && password_verify($password, $datosUsuario['password'])){
+                $data = ['usuario' => $datosUsuario[0]['username'], "type" => $datosUsuario[0]['type']];
+                $session = session();
+                $session->set($data);
+                return redirect()->to(base_url()."public/dashboard/index");
             }else{
                 return redirect()->to(base_url()."public/login/index");
             }
         }else{
             return redirect()->to(base_url()."public/login/index");
-        }  
+        }
     }
 
     public function salir(){
         $session = session();
         $session->destroy();
         return redirect()->to(base_url()."public/login/index");
+    }
+
+    public function session(){
+        session_start();
+        if (!isset($_SESSION['usuario'])) {
+            header('Location: ' . base_url() . 'public/login/index');
+            exit;
+        }
+        return redirect()->to(base_url()."public/dashboard/index");
     }
 }
