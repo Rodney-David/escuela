@@ -60,4 +60,10 @@ class Validation extends BaseConfig
         'username' => 'required',
         'password' => 'required',
     ];
+
+    public $cursos = [
+        'nivel' => 'required|numeric',
+        'seccion' => 'required|regex_match[/^[\pL\sñÑáéíóúÁÉÍÓÚüÜ0-9\-]+$/u]|max_length[50]',
+        'periodo' => 'required|regex_match[/^[\pL\sñÑáéíóúÁÉÍÓÚüÜ0-9\-]+$/u]|max_length[50]',
+    ];
 }

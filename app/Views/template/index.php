@@ -246,10 +246,10 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="#">
-                <svg class="bi"><use xlink:href="#cart"/></svg>
-                Products
-              </a>
+              <a class="nav-link d-flex align-items-center gap-2" href="<?= base_url("cursos") ?>">
+                <svg class="bi"><use xlink:href="#puzzle"/></svg>
+                Cursos 
+              </a> <!--cart-->
             </li>
             <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" href="#">

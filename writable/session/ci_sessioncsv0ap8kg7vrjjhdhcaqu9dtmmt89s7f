@@ -1,0 +1,6 @@
+__ci_last_regenerate|i:1697731180;_ci_previous_url|s:60:"http://localhost/escuela/public/index.php/create-estudiantes";usuario|N;type|N;error|s:707:"La validación de datos falló. Por favor, revisa tus entradas:<br>
+                                                    - NOMBRE (obligatorio, entre 3 y 50 caracteres, solo letras y espacios)<br>
+                                                    - APELLIDO (obligatorio, entre 3 y 50 caracteres)<br>
+                                                    - EMAIL (obligatorio, debe ser una dirección de correo válida)<br>
+                                                    - FECHA DE NACIMIENTO (obligatoria, debe ser una fecha válida en el formato Y-m-d)<br>
+                                                    - DIRECCIÓN (obligatoria, entre 5 y 100 caracteres, caracteres especiales permitidos) ";__ci_vars|a:1:{s:5:"error";s:3:"old";}

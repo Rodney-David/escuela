@@ -36,8 +36,8 @@
           <td><?= $estudiante['fecha_nacimiento'] ?></td>
           <td><?= $estudiante['direccion'] ?></td>
           <td style="white-space: nowrap;">
-            <a href="<?= base_url("editar/".$estudiante['id']) ?>">editar</a>
-            <a href="<?= base_url("eliminar/".$estudiante['id']) ?>">eliminar</a>
+            <a href="<?= base_url("editar-estudiantes/".$estudiante['id']) ?>">editar</a>
+            <a href="<?= base_url("eliminar-estudiantes/".$estudiante['id']) ?>">eliminar</a>
           </td>
         </tr>
       <?php endforeach; ?>
@@ -47,5 +47,5 @@
   <p>No hay estudiantes registrados.</p>
 <?php endif; ?>
 
-<a class="btn btn-primary" href="<?= base_url("create") ?>">Añadir Estudiante</a>
+<a class="btn btn-primary" href="<?= base_url("create-estudiantes") ?>">Añadir Estudiante</a>
 <?= $this->endSection() ?>

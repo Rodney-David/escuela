@@ -10,14 +10,25 @@ use CodeIgniter\Router\RouteCollection;
 
 $routes->get('/', 'Home::index');
 $routes->get('/holaMundo', 'Home::holaMundo');
+
 $routes->get('/login', 'Login::index');
 $routes->get('/register', 'Login::register');
 $routes->post('/registro-de-usuarios', 'Login::guardar');
 $routes->post('/inicio-de-usuarios', 'Login::iniciar');
+
 $routes->get('/estudiantes', 'EstudiantesController::index');
-$routes->get('/create', 'EstudiantesController::register');
+$routes->get('/create-estudiantes', 'EstudiantesController::register');
 $routes->post('/registro-de-estudiantes', 'EstudiantesController::guardar');
-$routes->get('/editar/(:num)', 'EstudiantesController::editar/$1');
-$routes->post('/editar_estudiantes/(:num)', 'EstudiantesController::actualizar/$1');
-$routes->get('/eliminar/(:num)', 'EstudiantesController::eliminar/$1');
+$routes->get('/editar-estudiantes/(:num)', 'EstudiantesController::editar/$1');
+$routes->post('/actualizar-estudiantes/(:num)', 'EstudiantesController::actualizar/$1');
+$routes->get('/eliminar-estudiantes/(:num)', 'EstudiantesController::eliminar/$1');
+
 $routes->get('/session', 'Login::session');
+
+$routes->get('/cursos', 'CursosController::index');
+$routes->get('/create-cursos', 'CursosController::register');
+$routes->post('/registro-de-cursos', 'CursosController::guardar');
+$routes->get('/editar-cursos/(:num)', 'CursosController::editar/$1');
+$routes->post('/actualizar-cursos/(:num)', 'CursosController::actualizar/$1');
+$routes->get('/eliminar-cursos/(:num)', 'CursosController::eliminar/$1');
+

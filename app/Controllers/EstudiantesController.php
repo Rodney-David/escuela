@@ -34,7 +34,7 @@ class EstudiantesController extends BaseController
             ); 
             return redirect()->to(base_url()."estudiantes")->with('success', 'Estudiante creado');
         }
-        return redirect()->back()->with('error', 'La validación de datos falló. Por favor, revisa tus entradas:<br>
+        return  redirect()->to(base_url()."create-estudiantes")->with('error', 'La validación de datos falló. Por favor, revisa tus entradas:<br>
                                                     - NOMBRE (obligatorio, entre 3 y 50 caracteres, solo letras y espacios)<br>
                                                     - APELLIDO (obligatorio, entre 3 y 50 caracteres)<br>
                                                     - EMAIL (obligatorio, debe ser una dirección de correo válida)<br>

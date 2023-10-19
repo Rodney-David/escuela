@@ -1,12 +1,12 @@
 <?= $this->extend('template/index') ?>
 <?= $this->section('content') ?>
-<h1>AÑADIR ESTUDIANTE</h1>
+<h1>EDITAR ESTUDIANTE</h1>
 <?php if (session()->has('error')): ?>
     <div class="alert alert-danger">
         <?= session('error') ?>
     </div>
 <?php endif; ?>
-<form method="post" action="<?= base_url('editar_estudiantes/'.$estudiante['id']) ?>">
+<form method="post" action="<?= base_url('actualizar-estudiantes/'.$estudiante['id']) ?>">
     <div class="form-floating mb-3">
         <input type="text" class="form-control" name="nombres" id="nombres" value="<?= $estudiante['nombres'] ?>" required>
         <label for="floatingInput">Nombres</label>

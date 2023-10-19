@@ -13,7 +13,7 @@
 <?php endif; ?>
 <form method="post" action="<?= base_url()."registro-de-estudiantes" ?>" >
     <div class="form-floating mb-3">
-        <input type="text" class="form-control" name="nombres" id="nombres" required>
+        <input type="text" class="form-control" name="nombres" id="nombres" value="<?= old("nombres") ?>" required>
         <label for="floatingInput">Nombres</label>
     </div>
     <div class="form-floating mb-3">
@@ -32,7 +32,7 @@
         <input type="text" class="form-control" name="direccion" id="direccion" required>
         <label for="floatingInput">Direccion</label>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Añadir</button>
 </form>
 
 <?= $this->endsection() ?>
