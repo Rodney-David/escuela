@@ -32,9 +32,15 @@ class EstudiantesController extends BaseController
                     'direccion' => $this->request->getPost('direccion'),
                 ]
             ); 
-            return redirect()->to(base_url()."public/estudiantes");
+            return redirect()->to(base_url()."estudiantes")->with('success', 'Estudiante creado');
         }
-        return redirect()->back();
+        return redirect()->back()->with('error', 'La validación de datos falló. Por favor, revisa tus entradas:<br>
+                                                    - NOMBRE (obligatorio, entre 3 y 50 caracteres, solo letras y espacios)<br>
+                                                    - APELLIDO (obligatorio, entre 3 y 50 caracteres)<br>
+                                                    - EMAIL (obligatorio, debe ser una dirección de correo válida)<br>
+                                                    - FECHA DE NACIMIENTO (obligatoria, debe ser una fecha válida en el formato Y-m-d)<br>
+                                                    - DIRECCIÓN (obligatoria, entre 5 y 100 caracteres, caracteres especiales permitidos) ');
+
     }
 
     public function editar($id){
@@ -45,7 +51,7 @@ class EstudiantesController extends BaseController
             return view('estudiantes/edit', ['estudiante' => $datos_estudiante]);
         } 
         else {
-            return redirect()->to(base_url()."public/estudiantes");
+            return redirect()->to(base_url()."estudiantes");
         }
     }
 
@@ -65,12 +71,17 @@ class EstudiantesController extends BaseController
                         'direccion' => $this->request->getPost('direccion'),
                     ]
                 ); 
-                return redirect()->to(base_url()."public/estudiantes");
+                return redirect()->to(base_url()."estudiantes");
             }
-            return redirect()->back();
+            return redirect()->back()->with('error', 'La validación de datos falló. Por favor, revisa tus entradas:<br>
+                                                    - NOMBRE (obligatorio, entre 3 y 50 caracteres, solo letras y espacios)<br>
+                                                    - APELLIDO (obligatorio, entre 3 y 50 caracteres)<br>
+                                                    - EMAIL (obligatorio, debe ser una dirección de correo válida)<br>
+                                                    - FECHA DE NACIMIENTO (obligatoria, debe ser una fecha válida en el formato Y-m-d)<br>
+                                                    - DIRECCIÓN (obligatoria, entre 5 y 100 caracteres, caracteres especiales permitidos) ');
         }
         else {
-            return redirect()->to(base_url()."public/estudiantes");
+            return redirect()->back()->with('error', 'Estudiante no existe.');
         }
     }
 
@@ -80,10 +91,10 @@ class EstudiantesController extends BaseController
 
         if($datos_estudiante){
             $estudiante->delete($id);
-            return redirect()->to(base_url()."public/estudiantes");
+            return redirect()->back()->with('success', 'Estudiante Eliminado');
         }
         else {
-            return redirect()->to(base_url()."public/estudiantes");
+            return redirect()->back()->with('error', 'Estudiante no Eliminado');
         }
     }
 

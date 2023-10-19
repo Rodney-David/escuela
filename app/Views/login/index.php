@@ -15,7 +15,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
-    <link href="<?= base_url()."public/bootstrap/css/bootstrap.min.css" ?>" rel="stylesheet">
+    <link href="<?= base_url()."bootstrap/css/bootstrap.min.css" ?>" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -98,7 +98,7 @@
 
     
     <!-- Custom styles for this template -->
-    <link href="<?= base_url()."public/recursos/sign-in.css" ?>" rel="stylesheet">
+    <link href="<?= base_url()."recursos/sign-in.css" ?>" rel="stylesheet">
   </head>
   <body class="d-flex align-items-center py-4 bg-body-tertiary">
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
@@ -154,8 +154,13 @@
 
     
 <main class="form-signin w-100 m-auto">
-  <form method="post" action="<?= base_url()."public/inicio-de-usuarios" ?>">
-    <img class="mb-4" src="<?= base_url()."public/recursos/img/logo.png" ?>" alt="" width="72" height="57">
+<?php if (session()->has('error')): ?>
+    <div class="alert alert-danger">
+        <?= session('error') ?>
+    </div>
+<?php endif; ?>
+  <form method="post" action="<?= base_url()."inicio-de-usuarios" ?>">
+    <img class="mb-4" src="<?= base_url()."recursos/img/logo.png" ?>" alt="" width="72" height="57">
     <h1 class="h3 mb-3 fw-normal">Inicie Sesión</h1>
 
     <div class="form-floating">
@@ -175,7 +180,7 @@
     </div>
     <button class="btn btn-primary w-100 py-2" type="submit" style="margin-bottom: 0.5rem;">Iniciar sesion</button>
   </form>
-    <a href="<?php echo base_url()?>public/register" class="btn btn-primary w-100 py-2">Registrarse</a>
+    <a href="<?php echo base_url()?>register" class="btn btn-primary w-100 py-2">Registrarse</a>
     <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2023</p>
 </main>
 <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>

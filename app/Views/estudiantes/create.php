@@ -1,7 +1,17 @@
 <?= $this->extend('template/index') ?>
 <?= $this->section('content') ?>
 <h1>AÑADIR ESTUDIANTE</h1>
-<form method="post" action="<?= base_url()."public/registro-de-estudiantes" ?>" >
+<?php if (session()->has('success')): ?>
+    <div class="alert alert-success">
+        <?= session('success') ?>
+    </div>
+<?php endif; ?>
+<?php if (session()->has('error')): ?>
+    <div class="alert alert-danger">
+        <?= session('error') ?>
+    </div>
+<?php endif; ?>
+<form method="post" action="<?= base_url()."registro-de-estudiantes" ?>" >
     <div class="form-floating mb-3">
         <input type="text" class="form-control" name="nombres" id="nombres" required>
         <label for="floatingInput">Nombres</label>
