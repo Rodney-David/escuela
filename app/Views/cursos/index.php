@@ -32,6 +32,7 @@
           <td><?= $curso['seccion'] ?></td>
           <td><?= $curso['periodo'] ?></td>
           <td style="white-space: nowrap;">
+            <a href="<?= base_url("ver-cursos/".$curso['id']) ?>">ver</a>
             <a href="<?= base_url("editar-cursos/".$curso['id']) ?>">editar</a>
             <a href="<?= base_url("eliminar-cursos/".$curso['id']) ?>">eliminar</a>
           </td>

@@ -66,4 +66,9 @@ class Validation extends BaseConfig
         'seccion' => 'required|regex_match[/^[\pL\sñÑáéíóúÁÉÍÓÚüÜ0-9\-]+$/u]|max_length[50]',
         'periodo' => 'required|regex_match[/^[\pL\sñÑáéíóúÁÉÍÓÚüÜ0-9\-]+$/u]|max_length[50]',
     ];
+
+    public $inscripcion = [
+        'estudiantes_id' => 'required|numeric',
+        'cursos_id' => 'required|numeric',
+    ];
 }

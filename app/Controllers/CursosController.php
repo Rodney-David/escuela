@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use App\Models\Cursos;
+use App\Models\Estudiantes;
+use App\Models\Inscripciones;
 
 class CursosController extends BaseController
 {
@@ -90,6 +92,41 @@ class CursosController extends BaseController
         else {
             return redirect()->back()->with('error', 'Curso no Eliminado');
         }
+    }
+
+    public function ver($id){
+        $curso = new Cursos();
+        $datos_curso = $curso->find($id);
+
+        $inscripciones = new Inscripciones();
+        $datos_inscripciones = $inscripciones->find($id);
+
+        if ($datos_curso) {
+            return view('cursos/show', ['curso' => $datos_curso, 'inscripciones' => $datos_inscripciones]);
+        } 
+        else {
+            return redirect()->to(base_url()."cursos");
+        }
+    }
+
+    public function guardarInscripcion(){
+        $minscripcion = new Inscripciones();
+
+        if($this->validate('inscripcion')){
+            $mcursos->insert(
+                [
+                    'estudiantes_id' => $this->request->getPost('estudiantes_id'),
+                    'cursos_id' => $this->request->getPost('cursos_id'),
+                    'estado' => 1,
+                ]
+            ); 
+            return redirect()->to(base_url()."cursos")->with('success', 'Curso creado');
+        }
+        return  redirect()->to(base_url()."create-cursos")->with('error', 'La validación de datos falló. Por favor, revisa tus entradas:<br>
+                                                                            - NIVEL (obligatorio, debe ser un número)<br>
+                                                                            - SECCIÓN (obligatoria, máximo 50 caracteres, [letras, números, espacios y guiones])<br>
+                                                                            - PERIODO (obligatorio, máximo 50 caracteres, [letras, números, espacios y guiones])')->with("data");
+
     }
 
 }

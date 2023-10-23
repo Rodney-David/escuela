@@ -1,0 +1,19 @@
+CRITICAL - 2023-10-23 13:06:19 --> Call to a member function hasMore() on null
+in APPPATH\Views\estudiantes\index.php on line 47.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('estudiantes/index', [], true)
+ 4 APPPATH\Controllers\EstudiantesController.php(13): view('estudiantes/index', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->index()
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-23 14:26:52 --> Invalid file: "cursos/show.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('cursos/show.php')
+ 2 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/show', [], true)
+ 3 APPPATH\Controllers\CursosController.php(105): view('cursos/show', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
