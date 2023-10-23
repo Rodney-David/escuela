@@ -96,37 +96,67 @@ class CursosController extends BaseController
 
     public function ver($id){
         $curso = new Cursos();
-        $datos_curso = $curso->find($id);
-
+        $data['curso'] = $curso->find($id);
         $inscripciones = new Inscripciones();
-        $datos_inscripciones = $inscripciones->find($id);
+        $data['inscripciones'] = $inscripciones->where('cursos_id', $id)->mostrar($inscripciones);
+        
 
-        if ($datos_curso) {
-            return view('cursos/show', ['curso' => $datos_curso, 'inscripciones' => $datos_inscripciones]);
+        if ($data) {
+            return view('cursos/show', $data);
         } 
         else {
             return redirect()->to(base_url()."cursos");
         }
     }
 
-    public function guardarInscripcion(){
+    public function inscribir($id){
+        $curso = new Cursos();
+        $data['curso'] = $curso->find($id);
+
+        $mestudiantes = new Estudiantes();
+        $data['estudiantes'] = $mestudiantes->findAll();
+
+        if ($data) {
+            return view('cursos/inscribir', $data);
+        } 
+        else {
+            return redirect()->to(base_url()."cursos");
+        }
+    }
+
+    public function guardarInscripcion($id){
+
         $minscripcion = new Inscripciones();
 
         if($this->validate('inscripcion')){
-            $mcursos->insert(
+            //$minscripcion->verificarInscripcion($this->request->getPost('estudiantes_id'));
+            //return  redirect()->to(base_url()."inscribir-cursos/".$id)->with('error', 'El estudiante ya esta inscrito en el');
+            $minscripcion->insert(
                 [
                     'estudiantes_id' => $this->request->getPost('estudiantes_id'),
-                    'cursos_id' => $this->request->getPost('cursos_id'),
+                    'cursos_id' => $id,
                     'estado' => 1,
                 ]
             ); 
-            return redirect()->to(base_url()."cursos")->with('success', 'Curso creado');
+            return redirect()->to(base_url()."ver-cursos/".$id)->with('success', 'Curso creado');
         }
-        return  redirect()->to(base_url()."create-cursos")->with('error', 'La validación de datos falló. Por favor, revisa tus entradas:<br>
-                                                                            - NIVEL (obligatorio, debe ser un número)<br>
-                                                                            - SECCIÓN (obligatoria, máximo 50 caracteres, [letras, números, espacios y guiones])<br>
-                                                                            - PERIODO (obligatorio, máximo 50 caracteres, [letras, números, espacios y guiones])')->with("data");
+        return  redirect()->to(base_url()."inscribir-cursos/".$id)->with('error', 'La validación de datos falló. Por favor, revisa tus entradas:<br>
+                                                                            - Estudiante (obligatorio)');
 
     }
 
+    public function editar_inscripcion($id){
+        $inscripciones = new Inscripciones();
+        $data['inscripciones'] = $inscripciones->find($id);
+
+        $mestudiantes = new Estudiantes();
+        $data['estudiantes'] = $mestudiantes->findAll();
+
+        if ($data) {
+            return view('cursos/edit_inscripcion', $data);
+        } 
+        else {
+            return redirect()->to(base_url()."cursos");
+        }
+    }
 }

@@ -17,3 +17,100 @@ in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
  5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
  6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-23 15:55:19 --> Too few arguments to function CodeIgniter\HTTP\RedirectResponse::with(), 1 passed in C:\xampp\htdocs\escuela\app\Controllers\CursosController.php on line 128 and exactly 2 expected
+in SYSTEMPATH\HTTP\RedirectResponse.php on line 130.
+ 1 APPPATH\Controllers\CursosController.php(128): CodeIgniter\HTTP\RedirectResponse->with('data')
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->guardarInscripcion('2')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-23 15:56:12 --> Too few arguments to function CodeIgniter\HTTP\RedirectResponse::with(), 1 passed in C:\xampp\htdocs\escuela\app\Controllers\CursosController.php on line 128 and exactly 2 expected
+in SYSTEMPATH\HTTP\RedirectResponse.php on line 130.
+ 1 APPPATH\Controllers\CursosController.php(128): CodeIgniter\HTTP\RedirectResponse->with('data')
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->guardarInscripcion('2')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-23 15:56:16 --> Too few arguments to function CodeIgniter\HTTP\RedirectResponse::with(), 1 passed in C:\xampp\htdocs\escuela\app\Controllers\CursosController.php on line 128 and exactly 2 expected
+in SYSTEMPATH\HTTP\RedirectResponse.php on line 130.
+ 1 APPPATH\Controllers\CursosController.php(128): CodeIgniter\HTTP\RedirectResponse->with('data')
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->guardarInscripcion('2')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-23 15:56:36 --> Call to a member function insert() on null
+in APPPATH\Controllers\CursosController.php on line 116.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->guardarInscripcion('2')
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-23 15:57:28 --> Call to a member function insert() on null
+in APPPATH\Controllers\CursosController.php on line 116.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->guardarInscripcion('2')
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-23 15:57:52 --> Too few arguments to function CodeIgniter\HTTP\RedirectResponse::with(), 1 passed in C:\xampp\htdocs\escuela\app\Controllers\CursosController.php on line 143 and exactly 2 expected
+in SYSTEMPATH\HTTP\RedirectResponse.php on line 130.
+ 1 APPPATH\Controllers\CursosController.php(143): CodeIgniter\HTTP\RedirectResponse->with('data')
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->guardarInscripcion('2')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-23 15:58:01 --> Too few arguments to function CodeIgniter\HTTP\RedirectResponse::with(), 1 passed in C:\xampp\htdocs\escuela\app\Controllers\CursosController.php on line 143 and exactly 2 expected
+in SYSTEMPATH\HTTP\RedirectResponse.php on line 130.
+ 1 APPPATH\Controllers\CursosController.php(143): CodeIgniter\HTTP\RedirectResponse->with('data')
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->guardarInscripcion('2')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-23 16:01:53 --> Cannot use object of type App\Models\Cursos as array
+in APPPATH\Controllers\CursosController.php on line 141.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->guardarInscripcion('2')
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-23 16:02:15 --> Cannot use object of type App\Models\Cursos as array
+in APPPATH\Controllers\CursosController.php on line 141.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->guardarInscripcion('2')
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-23 16:02:19 --> Cannot use object of type App\Models\Cursos as array
+in APPPATH\Controllers\CursosController.php on line 141.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->guardarInscripcion('2')
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-23 16:22:21 --> Invalid argument supplied for foreach()
+in APPPATH\Views\cursos\inscribir.php on line 12.
+ 1 APPPATH\Views\cursos\inscribir.php(12): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argument supplied for foreach()', 'C:\\xampp\\htdocs\\escuela\\app\\Views\\cursos\\inscribir.php', 12, [...])
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\escuela\\app\\Views\\cursos\\inscribir.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/inscribir', [], true)
+ 5 APPPATH\Controllers\CursosController.php(120): view('cursos/inscribir', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->inscribir('2')
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-23 16:26:09 --> Call to a member function select() on null
+in APPPATH\Models\Inscripciones.php on line 18.
+ 1 APPPATH\Controllers\CursosController.php(102): App\Models\Inscripciones->mostrar()
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-23 16:26:27 --> Call to a member function select() on null
+in APPPATH\Models\Inscripciones.php on line 18.
+ 1 APPPATH\Controllers\CursosController.php(102): App\Models\Inscripciones->mostrar()
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-23 16:28:27 --> Call to a member function select() on null
+in APPPATH\Models\Inscripciones.php on line 18.
+ 1 APPPATH\Controllers\CursosController.php(101): App\Models\Inscripciones->mostrar(Object(App\Models\Inscripciones))
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

@@ -69,6 +69,5 @@ class Validation extends BaseConfig
 
     public $inscripcion = [
         'estudiantes_id' => 'required|numeric',
-        'cursos_id' => 'required|numeric',
     ];
 }
