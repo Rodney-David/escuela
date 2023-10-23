@@ -15,8 +15,10 @@ class Inscripciones extends Model{
     }
     
     public function mostrar($inscripciones){
-        return $inscripciones->select('inscripciones.*, estudiantes.nombres as nombre_estudiante, estudiantes.apellidos as apellidos_estudiante')
+        return $inscripciones->select('inscripciones.*, estudiantes.nombres as nombre_estudiante, estudiantes.apellidos as apellidos_estudiante, 
+                                        cursos.nivel as nivel_curso, cursos.seccion as seccion_curso')
                             ->join('estudiantes', 'estudiantes.id = inscripciones.estudiantes_id', 'left')
+                            ->join('cursos', 'cursos.id = inscripciones.cursos_id', 'left')
                             ->orderBy('inscripciones.id', 'ASC')
                             ->orderBy('id','ASC')
                             ->findAll();

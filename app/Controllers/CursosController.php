@@ -147,7 +147,7 @@ class CursosController extends BaseController
 
     public function editar_inscripcion($id){
         $inscripciones = new Inscripciones();
-        $data['inscripciones'] = $inscripciones->find($id);
+        $data['inscripcion'] = $inscripciones->find($id);
 
         $mestudiantes = new Estudiantes();
         $data['estudiantes'] = $mestudiantes->findAll();
@@ -156,6 +156,22 @@ class CursosController extends BaseController
             return view('cursos/edit_inscripcion', $data);
         } 
         else {
+            return redirect()->to(base_url()."cursos");
+        }
+    }
+
+    public function actualizarInscripcion($id){
+        $minscripcion = new Inscripciones();
+        $inscripcion = $minscripcion->find($id);
+    
+        if ($inscripcion) { // Verificar si la inscripción existe
+            $estado = $this->request->getVar('estado');
+            $data = [
+                'estado' => $estado == '1' ? '1' : '0',
+            ];
+            $minscripcion->update($id, $data);
+            return redirect()->to(base_url()."ver-cursos/".$inscripcion['cursos_id'])->with('success', 'Curso creado');
+        } else {
             return redirect()->to(base_url()."cursos");
         }
     }

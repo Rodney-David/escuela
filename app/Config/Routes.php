@@ -36,3 +36,4 @@ $routes->get('/ver-cursos/(:num)', 'CursosController::ver/$1');
 $routes->get('/inscribir-cursos/(:num)', 'CursosController::inscribir/$1');
 $routes->post('/guardar-inscripcion/(:num)', 'CursosController::guardarInscripcion/$1');
 $routes->get('/edit_inscripcion/(:num)', 'CursosController::editar_inscripcion/$1');
+$routes->post('/actualizar_inscripcion/(:num)', 'CursosController::actualizarInscripcion/$1');

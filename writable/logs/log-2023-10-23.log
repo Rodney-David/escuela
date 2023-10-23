@@ -114,3 +114,154 @@ in APPPATH\Models\Inscripciones.php on line 18.
  3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
  4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-10-23 19:39:57 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`escuela`.`inscripciones`, CONSTRAINT `fk_inscripciones_estudiantes` FOREIGN KEY (`estudiantes_id`) REFERENCES `estudiantes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION) in C:\xampp\htdocs\escuela\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\escuela\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `in...', 0)
+#1 C:\xampp\htdocs\escuela\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `in...')
+#2 C:\xampp\htdocs\escuela\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `in...')
+#3 C:\xampp\htdocs\escuela\system\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `in...', Array, false)
+#4 C:\xampp\htdocs\escuela\system\Model.php(319): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\escuela\system\BaseModel.php(788): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\escuela\system\Model.php(715): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\escuela\app\Controllers\CursosController.php(138): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\escuela\system\CodeIgniter.php(919): App\Controllers\CursosController->guardarInscripcion('2')
+#9 C:\xampp\htdocs\escuela\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+#10 C:\xampp\htdocs\escuela\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\escuela\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-10-23 19:39:57 --> Cannot add or update a child row: a foreign key constraint fails (`escuela`.`inscripciones`, CONSTRAINT `fk_inscripciones_estudiantes` FOREIGN KEY (`estudiantes_id`) REFERENCES `estudiantes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `inscripciones` (`estudiantes_id`, `cursos_id`, `estado`) VALUES (:estudiantes_id:, :cursos_id:, :estado:)', [...], false)
+ 2 SYSTEMPATH\Model.php(319): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(788): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(715): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\CursosController.php(138): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->guardarInscripcion('2')
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-10-23 19:47:22 --> mysqli_sql_exception: Unknown column 'curso.seccion' in 'field list' in C:\xampp\htdocs\escuela\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\escuela\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `inscrip...', 0)
+#1 C:\xampp\htdocs\escuela\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `inscrip...')
+#2 C:\xampp\htdocs\escuela\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `inscrip...')
+#3 C:\xampp\htdocs\escuela\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT `inscrip...', Array, false)
+#4 C:\xampp\htdocs\escuela\system\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\escuela\system\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\escuela\app\Models\Inscripciones.php(24): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\escuela\app\Controllers\CursosController.php(101): App\Models\Inscripciones->mostrar(Object(App\Models\Inscripciones))
+#8 C:\xampp\htdocs\escuela\system\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+#9 C:\xampp\htdocs\escuela\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+#10 C:\xampp\htdocs\escuela\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\escuela\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-10-23 19:47:22 --> Unknown column 'curso.seccion' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT `inscripciones`.*, `estudiantes`.`nombres` as `nombre_estudiante`, `estudiantes`.`apellidos` as `apellidos_estudiante`, `cursos`.`nivel` as `nivel_curso`, `curso`.`seccion` as `seccion_curso`
+FROM `inscripciones`
+LEFT JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`estudiantes_id`
+LEFT JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`cursos_id`
+WHERE `cursos_id` = :cursos_id:
+ORDER BY `inscripciones`.`id` ASC, `id` ASC', [...], false)
+ 2 SYSTEMPATH\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\Inscripciones.php(24): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\CursosController.php(101): App\Models\Inscripciones->mostrar(Object(App\Models\Inscripciones))
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-10-23 19:47:25 --> mysqli_sql_exception: Unknown column 'curso.seccion' in 'field list' in C:\xampp\htdocs\escuela\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\escuela\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `inscrip...', 0)
+#1 C:\xampp\htdocs\escuela\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `inscrip...')
+#2 C:\xampp\htdocs\escuela\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `inscrip...')
+#3 C:\xampp\htdocs\escuela\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT `inscrip...', Array, false)
+#4 C:\xampp\htdocs\escuela\system\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\escuela\system\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\escuela\app\Models\Inscripciones.php(24): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\escuela\app\Controllers\CursosController.php(101): App\Models\Inscripciones->mostrar(Object(App\Models\Inscripciones))
+#8 C:\xampp\htdocs\escuela\system\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+#9 C:\xampp\htdocs\escuela\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+#10 C:\xampp\htdocs\escuela\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\escuela\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-10-23 19:47:25 --> Unknown column 'curso.seccion' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT `inscripciones`.*, `estudiantes`.`nombres` as `nombre_estudiante`, `estudiantes`.`apellidos` as `apellidos_estudiante`, `cursos`.`nivel` as `nivel_curso`, `curso`.`seccion` as `seccion_curso`
+FROM `inscripciones`
+LEFT JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`estudiantes_id`
+LEFT JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`cursos_id`
+WHERE `cursos_id` = :cursos_id:
+ORDER BY `inscripciones`.`id` ASC, `id` ASC', [...], false)
+ 2 SYSTEMPATH\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\Inscripciones.php(24): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\CursosController.php(101): App\Models\Inscripciones->mostrar(Object(App\Models\Inscripciones))
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-23 19:55:00 --> syntax error, unexpected ':', expecting ';' or ','
+in APPPATH\Views\cursos\edit_inscripcion.php on line 14.
+ 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/edit_inscripcion', [], true)
+ 3 APPPATH\Controllers\CursosController.php(156): view('cursos/edit_inscripcion', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->editar_inscripcion('1')
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-23 19:55:12 --> syntax error, unexpected ':', expecting ';' or ','
+in APPPATH\Views\cursos\edit_inscripcion.php on line 14.
+ 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/edit_inscripcion', [], true)
+ 3 APPPATH\Controllers\CursosController.php(156): view('cursos/edit_inscripcion', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->editar_inscripcion('1')
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-23 19:55:47 --> syntax error, unexpected ':', expecting ';' or ','
+in APPPATH\Views\cursos\edit_inscripcion.php on line 14.
+ 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/edit_inscripcion', [], true)
+ 3 APPPATH\Controllers\CursosController.php(156): view('cursos/edit_inscripcion', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->editar_inscripcion('1')
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-23 19:55:58 --> syntax error, unexpected ':', expecting ';' or ','
+in APPPATH\Views\cursos\edit_inscripcion.php on line 14.
+ 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/edit_inscripcion', [], true)
+ 3 APPPATH\Controllers\CursosController.php(156): view('cursos/edit_inscripcion', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->editar_inscripcion('1')
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-23 19:56:06 --> syntax error, unexpected ':', expecting ';' or ','
+in APPPATH\Views\cursos\edit_inscripcion.php on line 14.
+ 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/edit_inscripcion', [], true)
+ 3 APPPATH\Controllers\CursosController.php(156): view('cursos/edit_inscripcion', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->editar_inscripcion('1')
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-23 20:09:44 --> Call to a member function find() on null
+in APPPATH\Controllers\CursosController.php on line 165.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->actualizarInscripcion('1')
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-23 20:09:47 --> Call to a member function find() on null
+in APPPATH\Controllers\CursosController.php on line 165.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->actualizarInscripcion('1')
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-23 20:09:56 --> Call to a member function find() on null
+in APPPATH\Controllers\CursosController.php on line 165.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->actualizarInscripcion('1')
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

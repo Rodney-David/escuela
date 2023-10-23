@@ -1,6 +1,6 @@
 <?= $this->extend('template/index') ?>
 <?= $this->section('content') ?>
-<h1>EDITAR CURSO</h1>
+<h1>ESTUDIANTES</h1>
 <?php if (session()->has('error')): ?>
     <div class="alert alert-danger">
         <?= session('error') ?>
@@ -14,6 +14,7 @@
     <tr>
       <th scope="col">Matricula ID</th>
       <th scope="col">Estudiante</th>
+      <th scope="col">Curso</th>
       <th scope="col">Estado</th>
       <th scope="col">Opciones</th>
     </tr>
@@ -25,6 +26,7 @@
         <tr>
         <th scope="row"><?= $inscripcion['id'] ?></th>
         <td><?= $inscripcion['nombre_estudiante'] . ' ' . $inscripcion['apellidos_estudiante'] ?></td>
+        <td><?= $inscripcion['nivel_curso'] . '/' . $inscripcion['seccion_curso'] ?></td>
         <td><?= $inscripcion['estado'] ?></td>
         <td><div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
