@@ -241,7 +241,7 @@
             </li>
             <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" href="<?= base_url("estudiantes") ?>">
-                <svg class="bi"><use xlink:href="#file-earmark"/></svg>
+                <svg class="bi"><use xlink:href="#people"/></svg>
                 Estudiantes
               </a>
             </li>

@@ -1,0 +1,657 @@
+ERROR - 2023-10-24 14:17:57 --> mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`escuela`.`inscripciones`, CONSTRAINT `fk_inscripciones_estudiantes` FOREIGN KEY (`estudiantes_id`) REFERENCES `estudiantes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION) in C:\xampp\htdocs\escuela\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\escuela\system\Database\MySQLi\Connection.php(306): mysqli->query('DELETE FROM `es...', 0)
+#1 C:\xampp\htdocs\escuela\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `es...')
+#2 C:\xampp\htdocs\escuela\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `es...')
+#3 C:\xampp\htdocs\escuela\system\Database\BaseBuilder.php(2790): CodeIgniter\Database\BaseConnection->query('DELETE FROM `es...', Array, false)
+#4 C:\xampp\htdocs\escuela\system\Model.php(445): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\xampp\htdocs\escuela\system\BaseModel.php(1080): CodeIgniter\Model->doDelete(Array, false)
+#6 C:\xampp\htdocs\escuela\app\Controllers\EstudiantesController.php(93): CodeIgniter\BaseModel->delete(Array)
+#7 C:\xampp\htdocs\escuela\system\CodeIgniter.php(919): App\Controllers\EstudiantesController->eliminar('48')
+#8 C:\xampp\htdocs\escuela\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+#9 C:\xampp\htdocs\escuela\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\escuela\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-10-24 14:17:57 --> Cannot delete or update a parent row: a foreign key constraint fails (`escuela`.`inscripciones`, CONSTRAINT `fk_inscripciones_estudiantes` FOREIGN KEY (`estudiantes_id`) REFERENCES `estudiantes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2790): CodeIgniter\Database\BaseConnection->query('DELETE FROM `estudiantes`
+WHERE `id` IN :id:', [...], false)
+ 2 SYSTEMPATH\Model.php(445): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH\BaseModel.php(1080): CodeIgniter\Model->doDelete([...], false)
+ 4 APPPATH\Controllers\EstudiantesController.php(93): CodeIgniter\BaseModel->delete([...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->eliminar('48')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 14:32:17 --> Argument 3 passed to view() must be of the type array, object given, called in C:\xampp\htdocs\escuela\app\Controllers\EstudiantesController.php on line 14
+in SYSTEMPATH\Common.php on line 1176.
+ 1 APPPATH\Controllers\EstudiantesController.php(14): view('estudiantes/index', [...], Object(CodeIgniter\Pager\Pager))
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 14:32:24 --> Argument 3 passed to view() must be of the type array, object given, called in C:\xampp\htdocs\escuela\app\Controllers\EstudiantesController.php on line 14
+in SYSTEMPATH\Common.php on line 1176.
+ 1 APPPATH\Controllers\EstudiantesController.php(14): view('estudiantes/index', [...], Object(CodeIgniter\Pager\Pager))
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 14:34:10 --> Call to a member function links() on null
+in APPPATH\Views\estudiantes\index.php on line 50.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('estudiantes/index', [], true)
+ 4 APPPATH\Controllers\EstudiantesController.php(15): view('estudiantes/index', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->index()
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 14:34:10 --> Call to a member function links() on null
+in APPPATH\Views\estudiantes\index.php on line 50.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('estudiantes/index', [], true)
+ 4 APPPATH\Controllers\EstudiantesController.php(15): view('estudiantes/index', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->index()
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 15:25:07 --> Call to a member function links() on null
+in APPPATH\Views\cursos\index.php on line 54.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/index', [], true)
+ 4 APPPATH\Controllers\CursosController.php(15): view('cursos/index', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->index()
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 15:26:26 --> Call to a member function links() on null
+in APPPATH\Views\cursos\index.php on line 53.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/index', [], true)
+ 4 APPPATH\Controllers\CursosController.php(17): view('cursos/index', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->index()
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 15:26:27 --> Call to a member function links() on null
+in APPPATH\Views\cursos\index.php on line 53.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/index', [], true)
+ 4 APPPATH\Controllers\CursosController.php(17): view('cursos/index', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->index()
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 15:40:19 --> Call to a member function links() on null
+in APPPATH\Views\cursos\show.php on line 70.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/show', [], true)
+ 4 APPPATH\Controllers\CursosController.php(108): view('cursos/show', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 15:40:19 --> Call to a member function links() on null
+in APPPATH\Views\cursos\show.php on line 70.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/show', [], true)
+ 4 APPPATH\Controllers\CursosController.php(108): view('cursos/show', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 15:43:30 --> Call to a member function links() on null
+in APPPATH\Views\cursos\show.php on line 70.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/show', [], true)
+ 4 APPPATH\Controllers\CursosController.php(108): view('cursos/show', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 15:43:37 --> Call to a member function links() on null
+in APPPATH\Views\cursos\show.php on line 70.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/show', [], true)
+ 4 APPPATH\Controllers\CursosController.php(108): view('cursos/show', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 15:55:08 --> Call to a member function links() on null
+in APPPATH\Views\cursos\show.php on line 70.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/show', [], true)
+ 4 APPPATH\Controllers\CursosController.php(108): view('cursos/show', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 15:56:39 --> Call to a member function links() on null
+in APPPATH\Views\cursos\show.php on line 70.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/show', [], true)
+ 4 APPPATH\Controllers\CursosController.php(108): view('cursos/show', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 15:59:20 --> Call to undefined method App\Models\Inscripciones::mostrarInscripciones
+in SYSTEMPATH\Model.php on line 873.
+ 1 APPPATH\Controllers\CursosController.php(104): CodeIgniter\Model->__call('mostrarInscripciones', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 15:59:20 --> Call to undefined method App\Models\Inscripciones::mostrarInscripciones
+in SYSTEMPATH\Model.php on line 873.
+ 1 APPPATH\Controllers\CursosController.php(104): CodeIgniter\Model->__call('mostrarInscripciones', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 15:59:58 --> Call to undefined method App\Models\Inscripciones::mostrarInscripciones
+in SYSTEMPATH\Model.php on line 873.
+ 1 APPPATH\Controllers\CursosController.php(104): CodeIgniter\Model->__call('mostrarInscripciones', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 15:59:58 --> Call to undefined method App\Models\Inscripciones::mostrarInscripciones
+in SYSTEMPATH\Model.php on line 873.
+ 1 APPPATH\Controllers\CursosController.php(104): CodeIgniter\Model->__call('mostrarInscripciones', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 15:59:59 --> Call to undefined method App\Models\Inscripciones::mostrarInscripciones
+in SYSTEMPATH\Model.php on line 873.
+ 1 APPPATH\Controllers\CursosController.php(104): CodeIgniter\Model->__call('mostrarInscripciones', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 16:00:25 --> Call to undefined method App\Models\Inscripciones::mostrarInscripciones
+in SYSTEMPATH\Model.php on line 873.
+ 1 APPPATH\Controllers\CursosController.php(103): CodeIgniter\Model->__call('mostrarInscripciones', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 16:00:25 --> Call to undefined method App\Models\Inscripciones::mostrarInscripciones
+in SYSTEMPATH\Model.php on line 873.
+ 1 APPPATH\Controllers\CursosController.php(103): CodeIgniter\Model->__call('mostrarInscripciones', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 16:00:34 --> Call to undefined method App\Models\Inscripciones::mostrarInscripciones
+in SYSTEMPATH\Model.php on line 873.
+ 1 APPPATH\Controllers\CursosController.php(103): CodeIgniter\Model->__call('mostrarInscripciones', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 16:00:34 --> Call to undefined method App\Models\Inscripciones::mostrarInscripciones
+in SYSTEMPATH\Model.php on line 873.
+ 1 APPPATH\Controllers\CursosController.php(103): CodeIgniter\Model->__call('mostrarInscripciones', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 16:00:34 --> Call to undefined method App\Models\Inscripciones::mostrarInscripciones
+in SYSTEMPATH\Model.php on line 873.
+ 1 APPPATH\Controllers\CursosController.php(103): CodeIgniter\Model->__call('mostrarInscripciones', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 16:00:35 --> Call to undefined method App\Models\Inscripciones::mostrarInscripciones
+in SYSTEMPATH\Model.php on line 873.
+ 1 APPPATH\Controllers\CursosController.php(103): CodeIgniter\Model->__call('mostrarInscripciones', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 16:01:16 --> Call to undefined method App\Models\Inscripciones::mostrarInscripciones
+in SYSTEMPATH\Model.php on line 873.
+ 1 APPPATH\Controllers\CursosController.php(104): CodeIgniter\Model->__call('mostrarInscripciones', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 16:01:16 --> Call to undefined method App\Models\Inscripciones::mostrarInscripciones
+in SYSTEMPATH\Model.php on line 873.
+ 1 APPPATH\Controllers\CursosController.php(104): CodeIgniter\Model->__call('mostrarInscripciones', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 16:01:16 --> Call to undefined method App\Models\Inscripciones::mostrarInscripciones
+in SYSTEMPATH\Model.php on line 873.
+ 1 APPPATH\Controllers\CursosController.php(104): CodeIgniter\Model->__call('mostrarInscripciones', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 16:01:22 --> Call to undefined method App\Models\Inscripciones::mostrarInscripciones
+in SYSTEMPATH\Model.php on line 873.
+ 1 APPPATH\Controllers\CursosController.php(104): CodeIgniter\Model->__call('mostrarInscripciones', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 16:01:56 --> Call to a member function links() on null
+in APPPATH\Views\cursos\show.php on line 70.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/show', [], true)
+ 4 APPPATH\Controllers\CursosController.php(108): view('cursos/show', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 16:03:40 --> Call to undefined method App\Models\Inscripciones::mostrarInscripciones
+in SYSTEMPATH\Model.php on line 873.
+ 1 APPPATH\Controllers\CursosController.php(104): CodeIgniter\Model->__call('mostrarInscripciones', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 16:03:41 --> Call to undefined method App\Models\Inscripciones::mostrarInscripciones
+in SYSTEMPATH\Model.php on line 873.
+ 1 APPPATH\Controllers\CursosController.php(104): CodeIgniter\Model->__call('mostrarInscripciones', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 16:03:51 --> Call to a member function links() on null
+in APPPATH\Views\cursos\show.php on line 70.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/show', [], true)
+ 4 APPPATH\Controllers\CursosController.php(108): view('cursos/show', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 16:04:59 --> Call to a member function links() on null
+in APPPATH\Views\cursos\show.php on line 70.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/show', [], true)
+ 4 APPPATH\Controllers\CursosController.php(113): view('cursos/show', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 16:04:59 --> Call to a member function links() on null
+in APPPATH\Views\cursos\show.php on line 70.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/show', [], true)
+ 4 APPPATH\Controllers\CursosController.php(113): view('cursos/show', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 16:05:00 --> Call to a member function links() on null
+in APPPATH\Views\cursos\show.php on line 70.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/show', [], true)
+ 4 APPPATH\Controllers\CursosController.php(113): view('cursos/show', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 16:05:00 --> Call to a member function links() on null
+in APPPATH\Views\cursos\show.php on line 70.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/show', [], true)
+ 4 APPPATH\Controllers\CursosController.php(113): view('cursos/show', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 16:05:02 --> Call to a member function links() on null
+in APPPATH\Views\cursos\show.php on line 70.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/show', [], true)
+ 4 APPPATH\Controllers\CursosController.php(113): view('cursos/show', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 16:05:03 --> Call to a member function links() on null
+in APPPATH\Views\cursos\show.php on line 70.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/show', [], true)
+ 4 APPPATH\Controllers\CursosController.php(113): view('cursos/show', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 16:05:03 --> Call to a member function links() on null
+in APPPATH\Views\cursos\show.php on line 70.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/show', [], true)
+ 4 APPPATH\Controllers\CursosController.php(113): view('cursos/show', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 16:05:03 --> Call to a member function links() on null
+in APPPATH\Views\cursos\show.php on line 70.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/show', [], true)
+ 4 APPPATH\Controllers\CursosController.php(113): view('cursos/show', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 16:05:04 --> Call to a member function links() on null
+in APPPATH\Views\cursos\show.php on line 70.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/show', [], true)
+ 4 APPPATH\Controllers\CursosController.php(113): view('cursos/show', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 16:05:04 --> Call to a member function links() on null
+in APPPATH\Views\cursos\show.php on line 70.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/show', [], true)
+ 4 APPPATH\Controllers\CursosController.php(113): view('cursos/show', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 16:05:27 --> Call to a member function links() on null
+in APPPATH\Views\cursos\show.php on line 70.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/show', [], true)
+ 4 APPPATH\Controllers\CursosController.php(114): view('cursos/show', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 16:05:27 --> Call to a member function links() on null
+in APPPATH\Views\cursos\show.php on line 70.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/show', [], true)
+ 4 APPPATH\Controllers\CursosController.php(114): view('cursos/show', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 16:05:27 --> Call to a member function links() on null
+in APPPATH\Views\cursos\show.php on line 70.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/show', [], true)
+ 4 APPPATH\Controllers\CursosController.php(114): view('cursos/show', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 16:05:28 --> Call to a member function links() on null
+in APPPATH\Views\cursos\show.php on line 70.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/show', [], true)
+ 4 APPPATH\Controllers\CursosController.php(114): view('cursos/show', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 16:06:12 --> Call to a member function links() on null
+in APPPATH\Views\cursos\show.php on line 70.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/show', [], true)
+ 4 APPPATH\Controllers\CursosController.php(114): view('cursos/show', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 16:06:12 --> Call to a member function links() on null
+in APPPATH\Views\cursos\show.php on line 70.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/show', [], true)
+ 4 APPPATH\Controllers\CursosController.php(114): view('cursos/show', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 16:06:12 --> Call to a member function links() on null
+in APPPATH\Views\cursos\show.php on line 70.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/show', [], true)
+ 4 APPPATH\Controllers\CursosController.php(114): view('cursos/show', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 16:06:33 --> Call to a member function paginate() on array
+in APPPATH\Models\Inscripciones.php on line 25.
+ 1 APPPATH\Controllers\CursosController.php(104): App\Models\Inscripciones->mostrar(Object(App\Models\Inscripciones))
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 16:06:34 --> Call to a member function paginate() on array
+in APPPATH\Models\Inscripciones.php on line 25.
+ 1 APPPATH\Controllers\CursosController.php(104): App\Models\Inscripciones->mostrar(Object(App\Models\Inscripciones))
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 16:42:20 --> Invalid argument supplied for foreach()
+in APPPATH\Views\cursos\show.php on line 30.
+ 1 APPPATH\Views\cursos\show.php(30): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argument supplied for foreach()', 'C:\\xampp\\htdocs\\escuela\\app\\Views\\cursos\\show.php', 30, [...])
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\escuela\\app\\Views\\cursos\\show.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/show', [], true)
+ 5 APPPATH\Controllers\CursosController.php(109): view('cursos/show', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 16:44:00 --> Call to a member function links() on null
+in APPPATH\Views\cursos\show.php on line 70.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/show', [], true)
+ 4 APPPATH\Controllers\CursosController.php(109): view('cursos/show', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 16:44:56 --> Invalid argument supplied for foreach()
+in APPPATH\Views\cursos\show.php on line 30.
+ 1 APPPATH\Views\cursos\show.php(30): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argument supplied for foreach()', 'C:\\xampp\\htdocs\\escuela\\app\\Views\\cursos\\show.php', 30, [...])
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\escuela\\app\\Views\\cursos\\show.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/show', [], true)
+ 5 APPPATH\Controllers\CursosController.php(108): view('cursos/show', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 17:29:06 --> Call to a member function paginate() on array
+in APPPATH\Models\Inscripciones.php on line 24.
+ 1 APPPATH\Controllers\CursosController.php(106): App\Models\Inscripciones->mostrar(Object(App\Models\Inscripciones))
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 17:29:11 --> Call to a member function paginate() on array
+in APPPATH\Models\Inscripciones.php on line 25.
+ 1 APPPATH\Controllers\CursosController.php(106): App\Models\Inscripciones->mostrar(Object(App\Models\Inscripciones))
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 17:29:22 --> Call to a member function links() on null
+in APPPATH\Views\cursos\show.php on line 70.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/show', [], true)
+ 4 APPPATH\Controllers\CursosController.php(110): view('cursos/show', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 17:29:39 --> Call to a member function links() on null
+in APPPATH\Views\cursos\show.php on line 70.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/show', [], true)
+ 4 APPPATH\Controllers\CursosController.php(110): view('cursos/show', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 17:29:59 --> Call to a member function links() on null
+in APPPATH\Views\cursos\show.php on line 70.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/show', [], true)
+ 4 APPPATH\Controllers\CursosController.php(110): view('cursos/show', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 17:30:28 --> Call to a member function paginate() on array
+in APPPATH\Controllers\CursosController.php on line 104.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 17:32:06 --> Call to a member function paginate() on array
+in APPPATH\Controllers\CursosController.php on line 108.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 17:34:38 --> Call to a member function links() on null
+in APPPATH\Views\cursos\show.php on line 70.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/show', [], true)
+ 4 APPPATH\Controllers\CursosController.php(108): view('cursos/show', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('2')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 17:44:20 --> require(vendor/autoload.php): failed to open stream: No such file or directory
+in APPPATH\Controllers\EstudiantesController.php on line 107.
+ 1 APPPATH\Controllers\EstudiantesController.php(107): CodeIgniter\Debug\Exceptions->errorHandler(2, 'require(vendor/autoload.php): failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\escuela\\app\\Controllers\\EstudiantesController.php', 107, [])
+ 2 APPPATH\Controllers\EstudiantesController.php(107): require()
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->generarExcel()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 17:50:20 --> Call to a member function findall() on null
+in APPPATH\Controllers\EstudiantesController.php on line 113.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->generarExcel()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 17:50:27 --> Call to a member function findAll() on null
+in APPPATH\Controllers\EstudiantesController.php on line 113.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->generarExcel()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 18:04:06 --> Invalid argument supplied for foreach()
+in APPPATH\Controllers\EstudiantesController.php on line 119.
+ 1 APPPATH\Controllers\EstudiantesController.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argument supplied for foreach()', 'C:\\xampp\\htdocs\\escuela\\app\\Controllers\\EstudiantesController.php', 119, [...])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->generarExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 18:05:37 --> Invalid argument supplied for foreach()
+in APPPATH\Controllers\EstudiantesController.php on line 119.
+ 1 APPPATH\Controllers\EstudiantesController.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argument supplied for foreach()', 'C:\\xampp\\htdocs\\escuela\\app\\Controllers\\EstudiantesController.php', 119, [...])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->generarExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 18:06:27 --> Invalid argument supplied for foreach()
+in APPPATH\Controllers\EstudiantesController.php on line 119.
+ 1 APPPATH\Controllers\EstudiantesController.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argument supplied for foreach()', 'C:\\xampp\\htdocs\\escuela\\app\\Controllers\\EstudiantesController.php', 119, [...])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->generarExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 18:07:06 --> Invalid argument supplied for foreach()
+in APPPATH\Controllers\EstudiantesController.php on line 119.
+ 1 APPPATH\Controllers\EstudiantesController.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argument supplied for foreach()', 'C:\\xampp\\htdocs\\escuela\\app\\Controllers\\EstudiantesController.php', 119, [...])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->generarExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 18:08:13 --> Invalid argument supplied for foreach()
+in APPPATH\Controllers\EstudiantesController.php on line 119.
+ 1 APPPATH\Controllers\EstudiantesController.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argument supplied for foreach()', 'C:\\xampp\\htdocs\\escuela\\app\\Controllers\\EstudiantesController.php', 119, [...])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->generarExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-24 18:08:17 --> Invalid argument supplied for foreach()
+in APPPATH\Controllers\EstudiantesController.php on line 119.
+ 1 APPPATH\Controllers\EstudiantesController.php(119): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argument supplied for foreach()', 'C:\\xampp\\htdocs\\escuela\\app\\Controllers\\EstudiantesController.php', 119, [...])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->generarExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-10-24 19:29:34 --> mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`escuela`.`inscripciones`, CONSTRAINT `fk_inscripciones_estudiantes` FOREIGN KEY (`estudiantes_id`) REFERENCES `estudiantes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION) in C:\xampp\htdocs\escuela\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\escuela\system\Database\MySQLi\Connection.php(306): mysqli->query('DELETE FROM `es...', 0)
+#1 C:\xampp\htdocs\escuela\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `es...')
+#2 C:\xampp\htdocs\escuela\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `es...')
+#3 C:\xampp\htdocs\escuela\system\Database\BaseBuilder.php(2790): CodeIgniter\Database\BaseConnection->query('DELETE FROM `es...', Array, false)
+#4 C:\xampp\htdocs\escuela\system\Model.php(445): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\xampp\htdocs\escuela\system\BaseModel.php(1080): CodeIgniter\Model->doDelete(Array, false)
+#6 C:\xampp\htdocs\escuela\app\Controllers\EstudiantesController.php(97): CodeIgniter\BaseModel->delete(Array)
+#7 C:\xampp\htdocs\escuela\system\CodeIgniter.php(919): App\Controllers\EstudiantesController->eliminar('53')
+#8 C:\xampp\htdocs\escuela\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+#9 C:\xampp\htdocs\escuela\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\escuela\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-10-24 19:29:34 --> Cannot delete or update a parent row: a foreign key constraint fails (`escuela`.`inscripciones`, CONSTRAINT `fk_inscripciones_estudiantes` FOREIGN KEY (`estudiantes_id`) REFERENCES `estudiantes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2790): CodeIgniter\Database\BaseConnection->query('DELETE FROM `estudiantes`
+WHERE `id` IN :id:', [...], false)
+ 2 SYSTEMPATH\Model.php(445): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH\BaseModel.php(1080): CodeIgniter\Model->doDelete([...], false)
+ 4 APPPATH\Controllers\EstudiantesController.php(97): CodeIgniter\BaseModel->delete([...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->eliminar('53')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

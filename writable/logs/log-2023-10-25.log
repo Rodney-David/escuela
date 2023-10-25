@@ -1,0 +1,249 @@
+ERROR - 2023-10-25 13:32:51 --> mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`escuela`.`inscripciones`, CONSTRAINT `fk_inscripciones_cursos1` FOREIGN KEY (`cursos_id`) REFERENCES `cursos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION) in C:\xampp\htdocs\escuela\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\escuela\system\Database\MySQLi\Connection.php(306): mysqli->query('DELETE FROM `cu...', 0)
+#1 C:\xampp\htdocs\escuela\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `cu...')
+#2 C:\xampp\htdocs\escuela\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `cu...')
+#3 C:\xampp\htdocs\escuela\system\Database\BaseBuilder.php(2790): CodeIgniter\Database\BaseConnection->query('DELETE FROM `cu...', Array, false)
+#4 C:\xampp\htdocs\escuela\system\Model.php(445): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\xampp\htdocs\escuela\system\BaseModel.php(1080): CodeIgniter\Model->doDelete(Array, false)
+#6 C:\xampp\htdocs\escuela\app\Controllers\CursosController.php(90): CodeIgniter\BaseModel->delete(Array)
+#7 C:\xampp\htdocs\escuela\system\CodeIgniter.php(919): App\Controllers\CursosController->eliminar('2')
+#8 C:\xampp\htdocs\escuela\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+#9 C:\xampp\htdocs\escuela\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\escuela\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-10-25 13:32:51 --> Cannot delete or update a parent row: a foreign key constraint fails (`escuela`.`inscripciones`, CONSTRAINT `fk_inscripciones_cursos1` FOREIGN KEY (`cursos_id`) REFERENCES `cursos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2790): CodeIgniter\Database\BaseConnection->query('DELETE FROM `cursos`
+WHERE `id` IN :id:', [...], false)
+ 2 SYSTEMPATH\Model.php(445): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH\BaseModel.php(1080): CodeIgniter\Model->doDelete([...], false)
+ 4 APPPATH\Controllers\CursosController.php(90): CodeIgniter\BaseModel->delete([...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->eliminar('2')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-10-25 14:07:24 --> mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`escuela`.`inscripciones`, CONSTRAINT `fk_inscripciones_estudiantes` FOREIGN KEY (`estudiantes_id`) REFERENCES `estudiantes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION) in C:\xampp\htdocs\escuela\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\escuela\system\Database\MySQLi\Connection.php(306): mysqli->query('DELETE FROM `es...', 0)
+#1 C:\xampp\htdocs\escuela\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `es...')
+#2 C:\xampp\htdocs\escuela\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `es...')
+#3 C:\xampp\htdocs\escuela\system\Database\BaseBuilder.php(2790): CodeIgniter\Database\BaseConnection->query('DELETE FROM `es...', Array, false)
+#4 C:\xampp\htdocs\escuela\system\Model.php(445): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\xampp\htdocs\escuela\system\BaseModel.php(1080): CodeIgniter\Model->doDelete(Array, false)
+#6 C:\xampp\htdocs\escuela\app\Controllers\EstudiantesController.php(98): CodeIgniter\BaseModel->delete(Array)
+#7 C:\xampp\htdocs\escuela\system\CodeIgniter.php(919): App\Controllers\EstudiantesController->eliminar('41')
+#8 C:\xampp\htdocs\escuela\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+#9 C:\xampp\htdocs\escuela\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\escuela\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-10-25 14:07:24 --> Cannot delete or update a parent row: a foreign key constraint fails (`escuela`.`inscripciones`, CONSTRAINT `fk_inscripciones_estudiantes` FOREIGN KEY (`estudiantes_id`) REFERENCES `estudiantes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2790): CodeIgniter\Database\BaseConnection->query('DELETE FROM `estudiantes`
+WHERE `id` IN :id:', [...], false)
+ 2 SYSTEMPATH\Model.php(445): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH\BaseModel.php(1080): CodeIgniter\Model->doDelete([...], false)
+ 4 APPPATH\Controllers\EstudiantesController.php(98): CodeIgniter\BaseModel->delete([...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->eliminar('41')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-25 14:13:40 --> Call to undefined method App\Models\Estudiantes::verificarInscripcion
+in SYSTEMPATH\Model.php on line 873.
+ 1 APPPATH\Controllers\EstudiantesController.php(97): CodeIgniter\Model->__call('verificarInscripcion', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->eliminar('41')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-25 14:14:36 --> Call to a member function select() on null
+in APPPATH\Models\Inscripciones.php on line 24.
+ 1 APPPATH\Controllers\EstudiantesController.php(98): App\Models\Inscripciones->verificarInscripcion('41')
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->eliminar('41')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-25 14:15:25 --> Call to a member function select() on null
+in APPPATH\Models\Inscripciones.php on line 24.
+ 1 APPPATH\Controllers\EstudiantesController.php(98): App\Models\Inscripciones->verificarInscripcion('41')
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->eliminar('41')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-25 14:16:36 --> Call to a member function select() on null
+in APPPATH\Models\Inscripciones.php on line 24.
+ 1 APPPATH\Controllers\EstudiantesController.php(98): App\Models\Inscripciones->verificarInscripcion('41')
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->eliminar('41')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-25 14:16:39 --> Call to a member function select() on null
+in APPPATH\Models\Inscripciones.php on line 24.
+ 1 APPPATH\Controllers\EstudiantesController.php(98): App\Models\Inscripciones->verificarInscripcion('41')
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->eliminar('41')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-25 14:19:16 --> Object of class App\Models\Inscripciones could not be converted to string
+in APPPATH\Controllers\EstudiantesController.php on line 100.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->eliminar('281')
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-25 14:20:23 --> Call to undefined method App\Models\Inscripciones::count
+in SYSTEMPATH\Model.php on line 873.
+ 1 APPPATH\Models\Inscripciones.php(25): CodeIgniter\Model->__call('count', [])
+ 2 APPPATH\Controllers\EstudiantesController.php(98): App\Models\Inscripciones->verificarInscripcion('281')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->eliminar('281')
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-10-25 14:49:00 --> mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`escuela`.`inscripciones`, CONSTRAINT `fk_inscripciones_cursos1` FOREIGN KEY (`cursos_id`) REFERENCES `cursos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION) in C:\xampp\htdocs\escuela\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\escuela\system\Database\MySQLi\Connection.php(306): mysqli->query('DELETE FROM `cu...', 0)
+#1 C:\xampp\htdocs\escuela\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `cu...')
+#2 C:\xampp\htdocs\escuela\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `cu...')
+#3 C:\xampp\htdocs\escuela\system\Database\BaseBuilder.php(2790): CodeIgniter\Database\BaseConnection->query('DELETE FROM `cu...', Array, false)
+#4 C:\xampp\htdocs\escuela\system\Model.php(445): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\xampp\htdocs\escuela\system\BaseModel.php(1080): CodeIgniter\Model->doDelete(Array, false)
+#6 C:\xampp\htdocs\escuela\app\Controllers\CursosController.php(90): CodeIgniter\BaseModel->delete(Array)
+#7 C:\xampp\htdocs\escuela\system\CodeIgniter.php(919): App\Controllers\CursosController->eliminar('4')
+#8 C:\xampp\htdocs\escuela\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+#9 C:\xampp\htdocs\escuela\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\escuela\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-10-25 14:49:00 --> Cannot delete or update a parent row: a foreign key constraint fails (`escuela`.`inscripciones`, CONSTRAINT `fk_inscripciones_cursos1` FOREIGN KEY (`cursos_id`) REFERENCES `cursos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2790): CodeIgniter\Database\BaseConnection->query('DELETE FROM `cursos`
+WHERE `id` IN :id:', [...], false)
+ 2 SYSTEMPATH\Model.php(445): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH\BaseModel.php(1080): CodeIgniter\Model->doDelete([...], false)
+ 4 APPPATH\Controllers\CursosController.php(90): CodeIgniter\BaseModel->delete([...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->eliminar('4')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-10-25 14:51:21 --> mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`escuela`.`inscripciones`, CONSTRAINT `fk_inscripciones_cursos1` FOREIGN KEY (`cursos_id`) REFERENCES `cursos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION) in C:\xampp\htdocs\escuela\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\escuela\system\Database\MySQLi\Connection.php(306): mysqli->query('DELETE FROM `cu...', 0)
+#1 C:\xampp\htdocs\escuela\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `cu...')
+#2 C:\xampp\htdocs\escuela\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `cu...')
+#3 C:\xampp\htdocs\escuela\system\Database\BaseBuilder.php(2790): CodeIgniter\Database\BaseConnection->query('DELETE FROM `cu...', Array, false)
+#4 C:\xampp\htdocs\escuela\system\Model.php(445): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\xampp\htdocs\escuela\system\BaseModel.php(1080): CodeIgniter\Model->doDelete(Array, false)
+#6 C:\xampp\htdocs\escuela\app\Controllers\CursosController.php(94): CodeIgniter\BaseModel->delete(Array)
+#7 C:\xampp\htdocs\escuela\system\CodeIgniter.php(919): App\Controllers\CursosController->eliminar('4')
+#8 C:\xampp\htdocs\escuela\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+#9 C:\xampp\htdocs\escuela\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\escuela\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-10-25 14:51:21 --> Cannot delete or update a parent row: a foreign key constraint fails (`escuela`.`inscripciones`, CONSTRAINT `fk_inscripciones_cursos1` FOREIGN KEY (`cursos_id`) REFERENCES `cursos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2790): CodeIgniter\Database\BaseConnection->query('DELETE FROM `cursos`
+WHERE `id` IN :id:', [...], false)
+ 2 SYSTEMPATH\Model.php(445): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH\BaseModel.php(1080): CodeIgniter\Model->doDelete([...], false)
+ 4 APPPATH\Controllers\CursosController.php(94): CodeIgniter\BaseModel->delete([...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->eliminar('4')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-10-25 14:52:42 --> mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`escuela`.`inscripciones`, CONSTRAINT `fk_inscripciones_cursos1` FOREIGN KEY (`cursos_id`) REFERENCES `cursos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION) in C:\xampp\htdocs\escuela\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\escuela\system\Database\MySQLi\Connection.php(306): mysqli->query('DELETE FROM `cu...', 0)
+#1 C:\xampp\htdocs\escuela\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `cu...')
+#2 C:\xampp\htdocs\escuela\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `cu...')
+#3 C:\xampp\htdocs\escuela\system\Database\BaseBuilder.php(2790): CodeIgniter\Database\BaseConnection->query('DELETE FROM `cu...', Array, false)
+#4 C:\xampp\htdocs\escuela\system\Model.php(445): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\xampp\htdocs\escuela\system\BaseModel.php(1080): CodeIgniter\Model->doDelete(Array, false)
+#6 C:\xampp\htdocs\escuela\app\Controllers\CursosController.php(96): CodeIgniter\BaseModel->delete(Array)
+#7 C:\xampp\htdocs\escuela\system\CodeIgniter.php(919): App\Controllers\CursosController->eliminar('4')
+#8 C:\xampp\htdocs\escuela\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+#9 C:\xampp\htdocs\escuela\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\escuela\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-10-25 14:52:42 --> Cannot delete or update a parent row: a foreign key constraint fails (`escuela`.`inscripciones`, CONSTRAINT `fk_inscripciones_cursos1` FOREIGN KEY (`cursos_id`) REFERENCES `cursos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2790): CodeIgniter\Database\BaseConnection->query('DELETE FROM `cursos`
+WHERE `id` IN :id:', [...], false)
+ 2 SYSTEMPATH\Model.php(445): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH\BaseModel.php(1080): CodeIgniter\Model->doDelete([...], false)
+ 4 APPPATH\Controllers\CursosController.php(96): CodeIgniter\BaseModel->delete([...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->eliminar('4')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-10-25 14:54:28 --> mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`escuela`.`inscripciones`, CONSTRAINT `fk_inscripciones_cursos1` FOREIGN KEY (`cursos_id`) REFERENCES `cursos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION) in C:\xampp\htdocs\escuela\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\escuela\system\Database\MySQLi\Connection.php(306): mysqli->query('DELETE FROM `cu...', 0)
+#1 C:\xampp\htdocs\escuela\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `cu...')
+#2 C:\xampp\htdocs\escuela\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `cu...')
+#3 C:\xampp\htdocs\escuela\system\Database\BaseBuilder.php(2790): CodeIgniter\Database\BaseConnection->query('DELETE FROM `cu...', Array, false)
+#4 C:\xampp\htdocs\escuela\system\Model.php(445): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\xampp\htdocs\escuela\system\BaseModel.php(1080): CodeIgniter\Model->doDelete(Array, false)
+#6 C:\xampp\htdocs\escuela\app\Controllers\CursosController.php(94): CodeIgniter\BaseModel->delete(Array)
+#7 C:\xampp\htdocs\escuela\system\CodeIgniter.php(919): App\Controllers\CursosController->eliminar('4')
+#8 C:\xampp\htdocs\escuela\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+#9 C:\xampp\htdocs\escuela\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\escuela\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-10-25 14:54:28 --> Cannot delete or update a parent row: a foreign key constraint fails (`escuela`.`inscripciones`, CONSTRAINT `fk_inscripciones_cursos1` FOREIGN KEY (`cursos_id`) REFERENCES `cursos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2790): CodeIgniter\Database\BaseConnection->query('DELETE FROM `cursos`
+WHERE `id` IN :id:', [...], false)
+ 2 SYSTEMPATH\Model.php(445): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH\BaseModel.php(1080): CodeIgniter\Model->doDelete([...], false)
+ 4 APPPATH\Controllers\CursosController.php(94): CodeIgniter\BaseModel->delete([...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->eliminar('4')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-10-25 14:58:53 --> mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`escuela`.`inscripciones`, CONSTRAINT `fk_inscripciones_cursos1` FOREIGN KEY (`cursos_id`) REFERENCES `cursos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION) in C:\xampp\htdocs\escuela\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\escuela\system\Database\MySQLi\Connection.php(306): mysqli->query('DELETE FROM `cu...', 0)
+#1 C:\xampp\htdocs\escuela\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `cu...')
+#2 C:\xampp\htdocs\escuela\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `cu...')
+#3 C:\xampp\htdocs\escuela\system\Database\BaseBuilder.php(2790): CodeIgniter\Database\BaseConnection->query('DELETE FROM `cu...', Array, false)
+#4 C:\xampp\htdocs\escuela\system\Model.php(445): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\xampp\htdocs\escuela\system\BaseModel.php(1080): CodeIgniter\Model->doDelete(Array, false)
+#6 C:\xampp\htdocs\escuela\app\Controllers\CursosController.php(94): CodeIgniter\BaseModel->delete(Array)
+#7 C:\xampp\htdocs\escuela\system\CodeIgniter.php(919): App\Controllers\CursosController->eliminar('4')
+#8 C:\xampp\htdocs\escuela\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+#9 C:\xampp\htdocs\escuela\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\escuela\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-10-25 14:58:54 --> Cannot delete or update a parent row: a foreign key constraint fails (`escuela`.`inscripciones`, CONSTRAINT `fk_inscripciones_cursos1` FOREIGN KEY (`cursos_id`) REFERENCES `cursos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2790): CodeIgniter\Database\BaseConnection->query('DELETE FROM `cursos`
+WHERE `id` IN :id:', [...], false)
+ 2 SYSTEMPATH\Model.php(445): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH\BaseModel.php(1080): CodeIgniter\Model->doDelete([...], false)
+ 4 APPPATH\Controllers\CursosController.php(94): CodeIgniter\BaseModel->delete([...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->eliminar('4')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-10-25 14:58:57 --> mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`escuela`.`inscripciones`, CONSTRAINT `fk_inscripciones_cursos1` FOREIGN KEY (`cursos_id`) REFERENCES `cursos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION) in C:\xampp\htdocs\escuela\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\escuela\system\Database\MySQLi\Connection.php(306): mysqli->query('DELETE FROM `cu...', 0)
+#1 C:\xampp\htdocs\escuela\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `cu...')
+#2 C:\xampp\htdocs\escuela\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `cu...')
+#3 C:\xampp\htdocs\escuela\system\Database\BaseBuilder.php(2790): CodeIgniter\Database\BaseConnection->query('DELETE FROM `cu...', Array, false)
+#4 C:\xampp\htdocs\escuela\system\Model.php(445): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\xampp\htdocs\escuela\system\BaseModel.php(1080): CodeIgniter\Model->doDelete(Array, false)
+#6 C:\xampp\htdocs\escuela\app\Controllers\CursosController.php(94): CodeIgniter\BaseModel->delete(Array)
+#7 C:\xampp\htdocs\escuela\system\CodeIgniter.php(919): App\Controllers\CursosController->eliminar('4')
+#8 C:\xampp\htdocs\escuela\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+#9 C:\xampp\htdocs\escuela\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\escuela\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-10-25 14:58:57 --> Cannot delete or update a parent row: a foreign key constraint fails (`escuela`.`inscripciones`, CONSTRAINT `fk_inscripciones_cursos1` FOREIGN KEY (`cursos_id`) REFERENCES `cursos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2790): CodeIgniter\Database\BaseConnection->query('DELETE FROM `cursos`
+WHERE `id` IN :id:', [...], false)
+ 2 SYSTEMPATH\Model.php(445): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH\BaseModel.php(1080): CodeIgniter\Model->doDelete([...], false)
+ 4 APPPATH\Controllers\CursosController.php(94): CodeIgniter\BaseModel->delete([...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->eliminar('4')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

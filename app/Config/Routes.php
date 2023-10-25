@@ -32,8 +32,11 @@ $routes->get('/editar-cursos/(:num)', 'CursosController::editar/$1');
 $routes->post('/actualizar-cursos/(:num)', 'CursosController::actualizar/$1');
 $routes->get('/eliminar-cursos/(:num)', 'CursosController::eliminar/$1');
 
-$routes->get('/ver-cursos/(:num)', 'CursosController::ver/$1');
+$routes->get('/ver_inscripciones/(:num)', 'CursosController::ver/$1');
 $routes->get('/inscribir-cursos/(:num)', 'CursosController::inscribir/$1');
 $routes->post('/guardar-inscripcion/(:num)', 'CursosController::guardarInscripcion/$1');
 $routes->get('/edit_inscripcion/(:num)', 'CursosController::editar_inscripcion/$1');
 $routes->post('/actualizar_inscripcion/(:num)', 'CursosController::actualizarInscripcion/$1');
+$routes->get('/eliminar_inscripcion/(:num)', 'CursosController::eliminar_inscripcion/$1');
+
+$routes->get('/generarExcel_estudiantes', 'EstudiantesController::generarExcel');

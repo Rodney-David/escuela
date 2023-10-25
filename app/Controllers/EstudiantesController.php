@@ -3,12 +3,17 @@
 namespace App\Controllers;
 
 use App\Models\Estudiantes;
+use App\Models\Inscripciones;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class EstudiantesController extends BaseController
 {
     public function index(){
         $mestudiantes = new Estudiantes();
-        $data['estudiantes'] = $mestudiantes->findAll();
+        $data['estudiantes'] = $mestudiantes->paginate(30);
+        $paginador = $mestudiantes->pager;
+        $data['paginador'] = $paginador;
 
         return view('estudiantes/index', $data);
     }
@@ -88,8 +93,11 @@ class EstudiantesController extends BaseController
     public function eliminar($id){
         $estudiante = new Estudiantes();
         $datos_estudiante = $estudiante->find($id);
-
+        $inscripciones = new Inscripciones();
         if($datos_estudiante){
+            if($inscripciones->verificarInscripcion($id) > 0){
+                return redirect()->back()->with('error', 'El estudiante está inscrito a un curso');
+            }
             $estudiante->delete($id);
             return redirect()->back()->with('success', 'Estudiante Eliminado');
         }
@@ -98,4 +106,57 @@ class EstudiantesController extends BaseController
         }
     }
 
+    public function generarExcel() {
+        $spreadsheet = new Spreadsheet();
+        $activeWorksheet = $spreadsheet->getActiveSheet();
+        
+        $activeWorksheet->getColumnDimension('A')->setWidth(20);
+        $activeWorksheet->getColumnDimension('B')->setWidth(20);
+        $activeWorksheet->getColumnDimension('C')->setWidth(30);
+        $activeWorksheet->getColumnDimension('D')->setWidth(20);
+        $activeWorksheet->getColumnDimension('E')->setWidth(30);
+
+        $alignment = [
+            'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+            'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,
+        ];
+        $activeWorksheet->getStyle('A1:E1')->getAlignment()->applyFromArray($alignment);
+
+        $titleFont = [
+            'bold' => true,
+        ];
+        $activeWorksheet->getStyle('A1:E1')->getFont()->applyFromArray($titleFont);
+
+        $activeWorksheet->setCellValue('A1', 'Nombre');
+        $activeWorksheet->setCellValue('B1', 'Apellido');
+        $activeWorksheet->setCellValue('C1', 'Email');
+        $activeWorksheet->setCellValue('D1', 'FechaNacimiento');
+        $activeWorksheet->setCellValue('E1', 'Direccion');
+        
+        $mestudiantes = new Estudiantes();
+        $estudiantes = $mestudiantes->findAll();
+        
+        $cont = 2;
+
+        foreach($estudiantes as $estudiante){
+            $activeWorksheet->setCellValue('A' . $cont, $estudiante['nombres']);
+            $activeWorksheet->setCellValue('B' . $cont, $estudiante['apellidos']);
+            $activeWorksheet->setCellValue('C' . $cont, $estudiante['email']);
+            $activeWorksheet->setCellValue('D' . $cont, $estudiante['fecha_nacimiento']);
+            $activeWorksheet->setCellValue('E' . $cont, $estudiante['direccion']);
+            
+            $activeWorksheet->getStyle('A' . $cont . ':E' . $cont)->getAlignment()->applyFromArray($alignment);
+
+            $cont++;
+        }
+    
+        $writer = new Xlsx($spreadsheet);
+    
+        // Configura las cabeceras HTTP para forzar la descarga del archivo
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment;filename="estudiantes.xlsx"');
+        header('Cache-Control: max-age=0');
+        $writer->save('php://output');
+        exit;
+    }
 }
