@@ -247,3 +247,126 @@ WHERE `id` IN :id:', [...], false)
  6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
  7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-25 15:36:32 --> Class 'App\Controllers\Spreadsheet' not found
+in APPPATH\Controllers\CursosController.php on line 200.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->generarExcel('4')
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-25 15:36:54 --> Class 'App\Controllers\Spreadsheet' not found
+in APPPATH\Controllers\CursosController.php on line 201.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->generarExcel('4')
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-25 15:36:59 --> Class 'App\Controllers\Spreadsheet' not found
+in APPPATH\Controllers\CursosController.php on line 201.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->generarExcel('4')
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-25 15:39:24 --> Too few arguments to function PhpOffice\PhpSpreadsheet\Worksheet\Worksheet::setCellValue(), 1 passed in C:\xampp\htdocs\escuela\app\Controllers\CursosController.php on line 236 and at least 2 expected
+in VENDORPATH\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\Worksheet.php on line 1176.
+ 1 APPPATH\Controllers\CursosController.php(236): PhpOffice\PhpSpreadsheet\Worksheet\Worksheet->setCellValue('A2')
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->generarExcel('4')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-25 15:39:37 --> Too few arguments to function PhpOffice\PhpSpreadsheet\Worksheet\Worksheet::setCellValue(), 1 passed in C:\xampp\htdocs\escuela\app\Controllers\CursosController.php on line 236 and at least 2 expected
+in VENDORPATH\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\Worksheet.php on line 1176.
+ 1 APPPATH\Controllers\CursosController.php(236): PhpOffice\PhpSpreadsheet\Worksheet\Worksheet->setCellValue('A2')
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->generarExcel('4')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-25 15:42:01 --> Call to undefined method CodeIgniter\HTTP\IncomingRequest::get()
+in APPPATH\Controllers\CursosController.php on line 227.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->generarExcel('4')
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-25 15:42:54 --> preg_match() expects parameter 2 to be string, array given
+in VENDORPATH\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Cell\DefaultValueBinder.php on line 63.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'preg_match() expects parameter 2 to be string, array given', 'C:\\xampp\\htdocs\\escuela\\vendor\\phpoffice\\phpspreadsheet\\src\\PhpSpreadsheet\\Cell\\DefaultValueBinder.php', 63, [...])
+ 2 VENDORPATH\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Cell\DefaultValueBinder.php(63): preg_match('/^[\\+\\-]?(\\d+\\.?\\d*|\\d*\\.?\\d+)([Ee][\\-\\+]?[0-2]?\\d{1,3})?$/', [...])
+ 3 VENDORPATH\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Cell\DefaultValueBinder.php(35): PhpOffice\PhpSpreadsheet\Cell\DefaultValueBinder::dataTypeForValue([...])
+ 4 VENDORPATH\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Cell\Cell.php(237): PhpOffice\PhpSpreadsheet\Cell\DefaultValueBinder->bindValue(Object(PhpOffice\PhpSpreadsheet\Cell\Cell), [...])
+ 5 VENDORPATH\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Worksheet\Worksheet.php(1179): PhpOffice\PhpSpreadsheet\Cell\Cell->setValue([...], Object(PhpOffice\PhpSpreadsheet\Cell\DefaultValueBinder))
+ 6 APPPATH\Controllers\CursosController.php(227): PhpOffice\PhpSpreadsheet\Worksheet\Worksheet->setCellValue('A1', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->generarExcel('4')
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-10-25 15:56:02 --> mysqli_sql_exception: Unknown column 'curso_id' in 'where clause' in C:\xampp\htdocs\escuela\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\escuela\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `inscrip...', 0)
+#1 C:\xampp\htdocs\escuela\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `inscrip...')
+#2 C:\xampp\htdocs\escuela\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `inscrip...')
+#3 C:\xampp\htdocs\escuela\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT `inscrip...', Array, false)
+#4 C:\xampp\htdocs\escuela\system\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\escuela\system\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\escuela\app\Controllers\CursosController.php(230): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\escuela\system\CodeIgniter.php(919): App\Controllers\CursosController->generarExcel('4')
+#8 C:\xampp\htdocs\escuela\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+#9 C:\xampp\htdocs\escuela\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\escuela\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-10-25 15:56:02 --> Unknown column 'curso_id' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT `inscripciones`.`id`, `estudiantes`.`nombres`, `estudiantes`.`apellidos`, `inscripciones`.`estado`
+FROM `inscripciones`
+JOIN `estudiantes` ON `inscripciones`.`estudiante_id` = `estudiantes`.`id`
+WHERE `curso_id` = :curso_id:', [...], false)
+ 2 SYSTEMPATH\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\CursosController.php(230): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->generarExcel('4')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-10-25 15:56:43 --> mysqli_sql_exception: Unknown column 'inscripciones.estudiante_id' in 'on clause' in C:\xampp\htdocs\escuela\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\escuela\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `inscrip...', 0)
+#1 C:\xampp\htdocs\escuela\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `inscrip...')
+#2 C:\xampp\htdocs\escuela\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `inscrip...')
+#3 C:\xampp\htdocs\escuela\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT `inscrip...', Array, false)
+#4 C:\xampp\htdocs\escuela\system\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\escuela\system\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\escuela\app\Controllers\CursosController.php(230): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\escuela\system\CodeIgniter.php(919): App\Controllers\CursosController->generarExcel('4')
+#8 C:\xampp\htdocs\escuela\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+#9 C:\xampp\htdocs\escuela\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\escuela\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-10-25 15:56:43 --> Unknown column 'inscripciones.estudiante_id' in 'on clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT `inscripciones`.`id`, `estudiantes`.`nombres`, `estudiantes`.`apellidos`, `inscripciones`.`estado`
+FROM `inscripciones`
+JOIN `estudiantes` ON `inscripciones`.`estudiante_id` = `estudiantes`.`id`
+WHERE `cursos_id` = :cursos_id:', [...], false)
+ 2 SYSTEMPATH\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\CursosController.php(230): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->generarExcel('4')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-25 16:01:20 --> Invalid cell coordinate A1-2
+in VENDORPATH\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Cell\Coordinate.php on line 43.
+ 1 VENDORPATH\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Style\Style.php(228): PhpOffice\PhpSpreadsheet\Cell\Coordinate::coordinateFromString('A1-2')
+ 2 VENDORPATH\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Style\Alignment.php(214): PhpOffice\PhpSpreadsheet\Style\Style->applyFromArray([...])
+ 3 APPPATH\Controllers\CursosController.php(215): PhpOffice\PhpSpreadsheet\Style\Alignment->applyFromArray([...])
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->generarExcel('4')
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-25 16:38:14 --> "alphanumeric" is not a valid rule.
+in SYSTEMPATH\Validation\Validation.php on line 317.
+ 1 SYSTEMPATH\Validation\Validation.php(317): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('alphanumeric')
+ 2 SYSTEMPATH\Validation\Validation.php(195): CodeIgniter\Validation\Validation->processRules('codigo', 'codigo', '12m', [...], [...])
+ 3 SYSTEMPATH\Controller.php(150): CodeIgniter\Validation\Validation->run()
+ 4 APPPATH\Controllers\MateriasController.php(31): CodeIgniter\Controller->validate('materias')
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\MateriasController->guardar()
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MateriasController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

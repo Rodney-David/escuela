@@ -5,6 +5,8 @@ namespace App\Controllers;
 use App\Models\Cursos;
 use App\Models\Estudiantes;
 use App\Models\Inscripciones;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class CursosController extends BaseController
 {
@@ -194,5 +196,70 @@ class CursosController extends BaseController
         else {
             return redirect()->back()->with('error', 'Inscripcion no Eliminada');
         }
+    }
+
+    public function generarExcel($id) {
+        $spreadsheet = new Spreadsheet();
+        $activeWorksheet = $spreadsheet->getActiveSheet();
+        
+        $activeWorksheet->getColumnDimension('A')->setWidth(20);
+        $activeWorksheet->getColumnDimension('B')->setWidth(20);
+        $activeWorksheet->getColumnDimension('C')->setWidth(20);
+
+        $alignment = [
+            'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+            'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,
+        ];
+        $activeWorksheet->getStyle('A1:C1')->getAlignment()->applyFromArray($alignment);
+        $activeWorksheet->getStyle('A2:C2')->getAlignment()->applyFromArray($alignment);
+
+        $titleFont = [
+            'bold' => true,
+        ];
+        $activeWorksheet->getStyle('A1:C1')->getFont()->applyFromArray($titleFont);
+        $activeWorksheet->getStyle('A2:C2')->getFont()->applyFromArray($titleFont);
+
+        $mcursos = new Cursos();
+        $curso = $mcursos->find($id);
+
+        $minscripciones = new Inscripciones();
+        $inscripciones = $minscripciones
+            ->where('cursos_id', $id)
+            ->join('estudiantes', 'inscripciones.estudiantes_id = estudiantes.id')
+            ->select('inscripciones.id, estudiantes.nombres, estudiantes.apellidos, inscripciones.estado')
+            ->findAll();
+
+        if ($curso) {
+            $activeWorksheet->mergeCells('A1:C1');
+            $activeWorksheet->setCellValue('A1', 'Curso: ' . $curso['nivel'] . ' - ' . $curso['seccion']);
+
+            $activeWorksheet->setCellValue('A2', 'Id Matricula');
+            $activeWorksheet->setCellValue('B2', 'Nombres');
+            $activeWorksheet->setCellValue('C2', 'Estado');
+
+            $cont = 3;
+
+            foreach ($inscripciones as $inscripcion) {
+                $activeWorksheet->setCellValue('A' . $cont, $inscripcion['id']);
+                $activeWorksheet->setCellValue('B' . $cont, $inscripcion['nombres'] . ' ' . $inscripcion['apellidos']);
+                $activeWorksheet->setCellValue('C' . $cont, $inscripcion['estado'] == '1' ? 'Activo' : 'Inactivo');
+
+                $activeWorksheet->getStyle('A' . $cont . ':E' . $cont)->getAlignment()->applyFromArray($alignment);
+
+                $cont++;
+            }
+        } 
+        else {
+            $activeWorksheet->setCellValue('A1', 'Curso no encontrado');
+        }
+    
+        $writer = new Xlsx($spreadsheet);
+    
+        // Configura las cabeceras HTTP para forzar la descarga del archivo
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment;filename="inscripciones.xlsx"');
+        header('Cache-Control: max-age=0');
+        $writer->save('php://output');
+        exit;
     }
 }

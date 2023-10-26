@@ -11,7 +11,7 @@ class EstudiantesController extends BaseController
 {
     public function index(){
         $mestudiantes = new Estudiantes();
-        $data['estudiantes'] = $mestudiantes->paginate(30);
+        $data['estudiantes'] = $mestudiantes->orderBy('id','DESC')->paginate(30);
         $paginador = $mestudiantes->pager;
         $data['paginador'] = $paginador;
 
@@ -32,6 +32,7 @@ class EstudiantesController extends BaseController
                 [
                     'nombres' => $this->request->getPost('nombres'),
                     'apellidos' => $this->request->getPost('apellidos'),
+                    'sexo' => $this->request->getPost('sexo'),
                     'email' => $this->request->getPost('email'),
                     'fecha_nacimiento' => $this->request->getPost('fecha_nacimiento'),
                     'direccion' => $this->request->getPost('direccion'),
@@ -71,6 +72,7 @@ class EstudiantesController extends BaseController
                     [
                         'nombres' => $this->request->getPost('nombres'),
                         'apellidos' => $this->request->getPost('apellidos'),
+                        'sexo' => $this->request->getPost('sexo'),
                         'email' => $this->request->getPost('email'),
                         'fecha_nacimiento' => $this->request->getPost('fecha_nacimiento'),
                         'direccion' => $this->request->getPost('direccion'),

@@ -13,6 +13,7 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/dashboard/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
     <link href="<?= base_url()."bootstrap/css/bootstrap.min.css" ?>" rel="stylesheet">
+    
 
     <style>
       .bd-placeholder-img {
@@ -98,6 +99,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="<?= base_url()."recursos/dashboard.css" ?>" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('recursos/fontawesome/css/all.css') ?>">
   </head>
   <body>
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
@@ -203,7 +205,7 @@
 </svg>
 
 <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
-  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#">Company name</a>
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="<?= base_url("dashboard") ?>"> <i class="fa-solid fa-school"></i> Escuela</a>
 
   <ul class="navbar-nav flex-row d-md-none">
     <li class="nav-item text-nowrap">
@@ -241,23 +243,23 @@
             </li>
             <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" href="<?= base_url("estudiantes") ?>">
-                <svg class="bi"><use xlink:href="#people"/></svg>
+                <i class="fa-solid fa-people-group"></i>
                 Estudiantes
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" href="<?= base_url("cursos") ?>">
-                <svg class="bi"><use xlink:href="#puzzle"/></svg>
+              <i class="fa-solid fa-chalkboard-user"></i>
                 Cursos 
               </a> <!--cart-->
             </li>
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="#">
-                <svg class="bi"><use xlink:href="#people"/></svg>
-                Customers
+              <a class="nav-link d-flex align-items-center gap-2" href="<?= base_url("materias") ?>">
+                <i class="fa-solid fa-book"></i>
+                Materias
               </a>
             </li>
-            <li class="nav-item">
+            <!--<li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" href="#">
                 <svg class="bi"><use xlink:href="#graph-up"/></svg>
                 Reports
@@ -302,7 +304,7 @@
                 Year-end sale
               </a>
             </li>
-          </ul>
+          </ul>-->
 
           <hr class="my-3">
 

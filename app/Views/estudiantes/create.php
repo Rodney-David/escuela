@@ -20,6 +20,11 @@
         <input type="text" class="form-control" name="apellidos" id="apellidos" required>
         <label for="floatingInput">Apellidos</label> 
     </div>
+    <select class="form-select" aria-label="Default select example" name="sexo" id="sexo" required>
+        <option selected>Seleccionar sexo:</option>
+        <option value="M">Masculino</option>
+        <option value="F">Femenino</option>
+    </select>
     <div class="form-floating mb-3">
         <input type="email" class="form-control" name="email" id="email" required>
         <label for="floatingInput">Email</label>

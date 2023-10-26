@@ -70,4 +70,9 @@ class Validation extends BaseConfig
     public $inscripcion = [
         'estudiantes_id' => 'required|numeric',
     ];
+
+    public $materias = [
+        'nombre' => 'required|regex_match[/^[\pL\sñÑáéíóúÁÉÍÓÚüÜ0-9\-]+$/u]|max_length[50]',
+        'codigo' => 'required|regex_match[/^[a-zA-Z0-9]+$/]',
+    ];
 }

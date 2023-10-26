@@ -1,0 +1,6 @@
+CRITICAL - 2023-10-26 13:36:05 --> Too few arguments to function App\Controllers\EstudiantesController::index(), 0 passed in C:\xampp\htdocs\escuela\system\CodeIgniter.php on line 919 and exactly 5 expected
+in APPPATH\Controllers\EstudiantesController.php on line 12.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->index()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

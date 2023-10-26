@@ -14,6 +14,7 @@
 
 <h2>Curso: <?= $curso['nivel'] . '/' . $curso['seccion'] . ' - ' . $curso['periodo'] ?></h2>
 <a href="<?= base_url("inscribir-cursos/".$curso['id']) ?>" class="btn btn-primary">Inscribir Estudiante</a>
+<a class="btn btn-success" href="<?= base_url("generarExcel_inscripciones/".$curso['id']) ?>">Generar Excel</a>
 
 <table class="table">
   <thead>

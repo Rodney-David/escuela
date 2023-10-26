@@ -15,6 +15,11 @@
         <input type="text" class="form-control" name="apellidos" id="apellidos" value="<?= $estudiante['apellidos'] ?>" required>
         <label for="floatingInput">Apellidos</label> 
     </div>
+    <select class="form-select" aria-label="Default select example" name="sexo" required>
+        <option selected>Seleccionar sexo:</option>
+        <option value="M"  <?= $estudiante['sexo'] == 'M' ? 'selected' : '' ?>>Masculino</option>
+        <option value="F" <?= $estudiante['sexo'] == 'F' ? 'selected' : '' ?>>Femenino</option>
+    </select>
     <div class="form-floating mb-3">
         <input type="email" class="form-control" name="email" id="email" value="<?= $estudiante['email'] ?>" required>
         <label for="floatingInput">Email</label>

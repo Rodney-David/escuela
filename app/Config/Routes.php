@@ -39,4 +39,12 @@ $routes->get('/edit_inscripcion/(:num)', 'CursosController::editar_inscripcion/$
 $routes->post('/actualizar_inscripcion/(:num)', 'CursosController::actualizarInscripcion/$1');
 $routes->get('/eliminar_inscripcion/(:num)', 'CursosController::eliminar_inscripcion/$1');
 
+$routes->get('/materias', 'MateriasController::index');
+$routes->get('/create_materias', 'MateriasController::register');
+$routes->post('/registro_de_materias', 'MateriasController::guardar');
+$routes->get('/editar_materias/(:num)', 'MateriasController::editar/$1');
+$routes->post('/actualizar_materias/(:num)', 'MateriasController::actualizar/$1');
+$routes->get('/eliminar_materias/(:num)', 'MateriasController::eliminar/$1');
+
 $routes->get('/generarExcel_estudiantes', 'EstudiantesController::generarExcel');
+$routes->get('/generarExcel_inscripciones/(:num)', 'CursosController::generarExcel/$1');
