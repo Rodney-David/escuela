@@ -10,11 +10,40 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 class EstudiantesController extends BaseController
 {
     public function index(){
+        $nombres = $this->request->getGet('nombres');
+        $apellidos = $this->request->getGet('apellidos');
+        $sexo = $this->request->getGet('sexo');
+        $email = $this->request->getGet('email');
+        $direccion = $this->request->getGet('direccion');
+
+
+
         $mestudiantes = new Estudiantes();
+        if(!empty($nombres)){
+            $mestudiantes->like('nombres',$nombres);
+        }
+        if(!empty($apellidos)){
+            $mestudiantes->like('apellidos',$apellidos);
+        }
+        if(!empty($sexo)){
+            $mestudiantes->like('sexo',$sexo);
+        }
+        if(!empty($email)){
+            $mestudiantes->like('email',$email);
+        }
+        if(!empty($direccion)){
+            $mestudiantes->like('direccion',$direccion);
+        }
+
         $data['estudiantes'] = $mestudiantes->orderBy('id','DESC')->paginate(30);
         $paginador = $mestudiantes->pager;
         $data['paginador'] = $paginador;
-
+        
+        $data['nombres'] = $nombres;
+        $data['nombres'] = $nombres;
+        $data['nombres'] = $nombres;
+        $data['nombres'] = $nombres;
+        $data['nombres'] = $nombres;
         return view('estudiantes/index', $data);
     }
 
@@ -161,4 +190,83 @@ class EstudiantesController extends BaseController
         $writer->save('php://output');
         exit;
     }
+
+    public function generarExcel_Filtro() {
+        $spreadsheet = new Spreadsheet();
+        $activeWorksheet = $spreadsheet->getActiveSheet();
+    
+        $activeWorksheet->getColumnDimension('A')->setWidth(20);
+        $activeWorksheet->getColumnDimension('B')->setWidth(20);
+        $activeWorksheet->getColumnDimension('C')->setWidth(30);
+        $activeWorksheet->getColumnDimension('D')->setWidth(20);
+        $activeWorksheet->getColumnDimension('E')->setWidth(30);
+    
+        $alignment = [
+            'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+            'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,
+        ];
+        $activeWorksheet->getStyle('A1:E1')->getAlignment()->applyFromArray($alignment);
+    
+        $titleFont = [
+            'bold' => true,
+        ];
+        $activeWorksheet->getStyle('A1:E1')->getFont()->applyFromArray($titleFont);
+    
+        $activeWorksheet->setCellValue('A1', 'Nombre');
+        $activeWorksheet->setCellValue('B1', 'Apellido');
+        $activeWorksheet->setCellValue('C1', 'Email');
+        $activeWorksheet->setCellValue('D1', 'Fecha de Nacimiento');
+        $activeWorksheet->setCellValue('E1', 'Direccion');
+    
+        $mestudiantes = new Estudiantes();
+    
+        $nombres = $this->request->getGet('nombres');
+        $apellidos = $this->request->getGet('apellidos');
+        $sexo = $this->request->getGet('sexo');
+        $email = $this->request->getGet('email');
+        $direccion = $this->request->getGet('direccion');
+        
+        if (!empty($nombres) && ($nombres != null) ) {
+            $mestudiantes->like('nombres', $nombres);
+        }
+        /*if (!empty($apellidos)) {
+            $mestudiantes->like('apellidos', $apellidos);
+        }
+        if (!empty($sexo)) {
+            $mestudiantes->like('sexo', $sexo);
+        }
+        if (!empty($email)) {
+            $mestudiantes->like('email', $email);
+        }
+        if (!empty($direccion)) {
+            $mestudiantes->like('direccion', $direccion);
+        }*/
+    
+        $estudiantes = $mestudiantes->orderBy('id','DESC')->findAll();
+    
+        $cont = 2;
+    
+        foreach ($estudiantes as $estudiante) {    
+            $activeWorksheet->setCellValue('A' . $cont, $estudiante['nombres']);
+            $activeWorksheet->setCellValue('B' . $cont, $estudiante['apellidos']);
+            $activeWorksheet->setCellValue('C' . $cont, $estudiante['email']);
+            $activeWorksheet->setCellValue('D' . $cont, $estudiante['fecha_nacimiento']);
+            $activeWorksheet->setCellValue('E' . $cont, $estudiante['direccion']);
+    
+            $activeWorksheet->getStyle('A' . $cont . ':E' . $cont)->getAlignment()->applyFromArray($alignment);
+    
+            $cont++;
+        }
+    
+        $writer = new Xlsx($spreadsheet);
+    
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment;filename="estudiantesFiltro.xlsx"');
+        header('Cache-Control: max-age=0');
+        
+        $writer->save('php://output');
+        exit;
+    }
+    
+    
 }

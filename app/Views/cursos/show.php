@@ -16,6 +16,41 @@
 <a href="<?= base_url("inscribir-cursos/".$curso['id']) ?>" class="btn btn-primary">Inscribir Estudiante</a>
 <a class="btn btn-success" href="<?= base_url("generarExcel_inscripciones/".$curso['id']) ?>">Generar Excel</a>
 
+<div class="accordion accordion-flush" id="accordionFlushExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingOne">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+          Filtrar
+        </button>
+      </h2>
+      <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+          <form class="row g-3" action="" >
+            <div class="col-md-6">
+              <label for="inputEmail4" class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="nombre_estudiante" name="nombre_estudiante">
+            </div>
+            <div class="col-md-6">
+              <label for="inputEmail4" class="form-label">Apellido</label>
+              <input type="text" class="form-control" id="apellidos_estudiante" name="apellidos_estudiante">
+            </div>
+            <div class="col-md-6">
+              <label for="inputEmail4" class="form-label">Nivel del curso</label>
+              <input type="text" class="form-control" id="nivel_curso" name="nivel_curso">
+            </div>
+            <div class="col-md-6">
+              <label for="inputEmail4" class="form-label">Seccion del Curso</label>
+              <input type="text" class="form-control" id="seccion_curso" name="seccion_curso">
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary">Buscar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <table class="table">
   <thead>
     <tr>

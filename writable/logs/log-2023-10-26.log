@@ -4,3 +4,220 @@ in APPPATH\Controllers\EstudiantesController.php on line 12.
  2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
  3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-26 16:00:24 --> Invalid argument supplied for foreach()
+in APPPATH\Controllers\EstudiantesController.php on line 244.
+ 1 APPPATH\Controllers\EstudiantesController.php(244): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argument supplied for foreach()', 'C:\\xampp\\htdocs\\escuela\\app\\Controllers\\EstudiantesController.php', 244, [...])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->generarExcel_Filtro()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-26 16:01:03 --> Argument 2 passed to CodeIgniter\Database\BaseBuilder::like() must be of the type string, null given, called in C:\xampp\htdocs\escuela\system\Model.php on line 871
+in SYSTEMPATH\Database\BaseBuilder.php on line 983.
+ 1 SYSTEMPATH\Model.php(871): CodeIgniter\Database\BaseBuilder->like('nombres', null)
+ 2 APPPATH\Controllers\EstudiantesController.php(242): CodeIgniter\Model->__call('like', [...])
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->generarExcel_Filtro()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-26 16:13:01 --> Call to undefined function App\Controllers\like()
+in APPPATH\Controllers\EstudiantesController.php on line 224.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->generarExcel_Filtro()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-26 16:13:35 --> Argument 1 passed to CodeIgniter\BaseModel::findAll() must be of the type int, string given, called in C:\xampp\htdocs\escuela\app\Controllers\EstudiantesController.php on line 239
+in SYSTEMPATH\BaseModel.php on line 607.
+ 1 APPPATH\Controllers\EstudiantesController.php(239): CodeIgniter\BaseModel->findAll('Nombre', 'Apellido', 'Sexo', 'Email', 'Direccion')
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->generarExcel_Filtro()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-26 16:13:44 --> Invalid argument supplied for foreach()
+in APPPATH\Controllers\EstudiantesController.php on line 243.
+ 1 APPPATH\Controllers\EstudiantesController.php(243): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argument supplied for foreach()', 'C:\\xampp\\htdocs\\escuela\\app\\Controllers\\EstudiantesController.php', 243, [...])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->generarExcel_Filtro()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-26 16:18:13 --> Call to a member function like() on array
+in APPPATH\Controllers\EstudiantesController.php on line 239.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->generarExcel_Filtro()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-26 16:18:31 --> Call to a member function like() on array
+in APPPATH\Controllers\EstudiantesController.php on line 224.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->generarExcel_Filtro()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-26 16:31:38 --> Call to a member function table() on null
+in APPPATH\Controllers\EstudiantesController.php on line 221.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->generarExcel_Filtro()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-26 16:33:07 --> Call to a member function table() on null
+in APPPATH\Controllers\EstudiantesController.php on line 221.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->generarExcel_Filtro()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-10-26 17:16:39 --> mysqli_sql_exception: Not unique table/alias: 'estudiantes' in C:\xampp\htdocs\escuela\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\escuela\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\escuela\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\escuela\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\escuela\system\Database\BaseBuilder.php(1699): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\escuela\system\Model.php(599): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+#5 C:\xampp\htdocs\escuela\system\BaseModel.php(1203): CodeIgniter\Model->countAllResults(false)
+#6 C:\xampp\htdocs\escuela\app\Models\Inscripciones.php(20): CodeIgniter\BaseModel->paginate(15)
+#7 C:\xampp\htdocs\escuela\app\Controllers\CursosController.php(135): App\Models\Inscripciones->mostrar(Object(App\Models\Inscripciones))
+#8 C:\xampp\htdocs\escuela\system\CodeIgniter.php(919): App\Controllers\CursosController->ver('4')
+#9 C:\xampp\htdocs\escuela\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+#10 C:\xampp\htdocs\escuela\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\escuela\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-10-26 17:16:39 --> Not unique table/alias: 'estudiantes'
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1699): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `inscripciones`
+LEFT JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`estudiantes_id`
+LEFT JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`cursos_id`
+LEFT JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`estudiantes_id`
+LEFT JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`cursos_id`
+WHERE `cursos_id` = :cursos_id:', [...], false)
+ 2 SYSTEMPATH\Model.php(599): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+ 3 SYSTEMPATH\BaseModel.php(1203): CodeIgniter\Model->countAllResults(false)
+ 4 APPPATH\Models\Inscripciones.php(20): CodeIgniter\BaseModel->paginate(15)
+ 5 APPPATH\Controllers\CursosController.php(135): App\Models\Inscripciones->mostrar(Object(App\Models\Inscripciones))
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('4')
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-10-26 17:17:38 --> mysqli_sql_exception: Not unique table/alias: 'estudiantes' in C:\xampp\htdocs\escuela\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\escuela\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\escuela\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\escuela\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\escuela\system\Database\BaseBuilder.php(1699): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\escuela\system\Model.php(599): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+#5 C:\xampp\htdocs\escuela\system\BaseModel.php(1203): CodeIgniter\Model->countAllResults(false)
+#6 C:\xampp\htdocs\escuela\app\Models\Inscripciones.php(20): CodeIgniter\BaseModel->paginate(15)
+#7 C:\xampp\htdocs\escuela\app\Controllers\CursosController.php(135): App\Models\Inscripciones->mostrar(Object(App\Models\Inscripciones))
+#8 C:\xampp\htdocs\escuela\system\CodeIgniter.php(919): App\Controllers\CursosController->ver('4')
+#9 C:\xampp\htdocs\escuela\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+#10 C:\xampp\htdocs\escuela\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\escuela\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-10-26 17:17:38 --> Not unique table/alias: 'estudiantes'
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1699): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `inscripciones`
+LEFT JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`estudiantes_id`
+LEFT JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`cursos_id`
+LEFT JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`estudiantes_id`
+LEFT JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`cursos_id`
+WHERE `cursos_id` = :cursos_id:', [...], false)
+ 2 SYSTEMPATH\Model.php(599): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+ 3 SYSTEMPATH\BaseModel.php(1203): CodeIgniter\Model->countAllResults(false)
+ 4 APPPATH\Models\Inscripciones.php(20): CodeIgniter\BaseModel->paginate(15)
+ 5 APPPATH\Controllers\CursosController.php(135): App\Models\Inscripciones->mostrar(Object(App\Models\Inscripciones))
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver('4')
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-26 19:29:42 --> Too few arguments to function App\Controllers\EstudiantesController::generarExcel_Filtro(), 0 passed in C:\xampp\htdocs\escuela\system\CodeIgniter.php on line 919 and exactly 5 expected
+in APPPATH\Controllers\EstudiantesController.php on line 187.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->generarExcel_Filtro()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-26 19:29:49 --> Too few arguments to function App\Controllers\EstudiantesController::generarExcel_Filtro(), 0 passed in C:\xampp\htdocs\escuela\system\CodeIgniter.php on line 919 and exactly 5 expected
+in APPPATH\Controllers\EstudiantesController.php on line 187.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->generarExcel_Filtro()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-26 19:30:52 --> Too few arguments to function App\Controllers\EstudiantesController::generarExcel_Filtro(), 0 passed in C:\xampp\htdocs\escuela\system\CodeIgniter.php on line 919 and exactly 5 expected
+in APPPATH\Controllers\EstudiantesController.php on line 187.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->generarExcel_Filtro()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-26 19:53:53 --> Too few arguments to function App\Controllers\EstudiantesController::generarExcel_Filtro(), 0 passed in C:\xampp\htdocs\escuela\system\CodeIgniter.php on line 919 and exactly 1 expected
+in APPPATH\Controllers\EstudiantesController.php on line 194.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->generarExcel_Filtro()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-26 19:55:38 --> Too few arguments to function App\Controllers\EstudiantesController::generarExcel_Filtro(), 0 passed in C:\xampp\htdocs\escuela\system\CodeIgniter.php on line 919 and exactly 1 expected
+in APPPATH\Controllers\EstudiantesController.php on line 194.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->generarExcel_Filtro()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-26 19:55:45 --> Too few arguments to function App\Controllers\EstudiantesController::generarExcel_Filtro(), 0 passed in C:\xampp\htdocs\escuela\system\CodeIgniter.php on line 919 and exactly 1 expected
+in APPPATH\Controllers\EstudiantesController.php on line 194.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->generarExcel_Filtro()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-26 19:56:44 --> Return value of CodeIgniter\HTTP\SiteURI::stringifyRelativePath() must be of the type string, null returned
+in SYSTEMPATH\HTTP\SiteURI.php on line 401.
+ 1 SYSTEMPATH\HTTP\SiteURI.php(375): CodeIgniter\HTTP\SiteURI->stringifyRelativePath(null)
+ 2 SYSTEMPATH\Helpers\url_helper.php(54): CodeIgniter\HTTP\SiteURI->baseUrl(null, null)
+ 3 APPPATH\Views\estudiantes\index.php(18): base_url(null)
+ 4 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\escuela\\app\\Views\\estudiantes\\index.php')
+ 5 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('estudiantes/index', [], true)
+ 7 APPPATH\Controllers\EstudiantesController.php(47): view('estudiantes/index', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+10 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-26 19:56:53 --> Return value of CodeIgniter\HTTP\SiteURI::stringifyRelativePath() must be of the type string, null returned
+in SYSTEMPATH\HTTP\SiteURI.php on line 401.
+ 1 SYSTEMPATH\HTTP\SiteURI.php(375): CodeIgniter\HTTP\SiteURI->stringifyRelativePath(null)
+ 2 SYSTEMPATH\Helpers\url_helper.php(54): CodeIgniter\HTTP\SiteURI->baseUrl(null, null)
+ 3 APPPATH\Views\estudiantes\index.php(18): base_url(null)
+ 4 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\escuela\\app\\Views\\estudiantes\\index.php')
+ 5 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('estudiantes/index', [], true)
+ 7 APPPATH\Controllers\EstudiantesController.php(47): view('estudiantes/index', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+10 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-26 19:57:35 --> Return value of CodeIgniter\HTTP\SiteURI::stringifyRelativePath() must be of the type string, null returned
+in SYSTEMPATH\HTTP\SiteURI.php on line 401.
+ 1 SYSTEMPATH\HTTP\SiteURI.php(375): CodeIgniter\HTTP\SiteURI->stringifyRelativePath(null)
+ 2 SYSTEMPATH\Helpers\url_helper.php(54): CodeIgniter\HTTP\SiteURI->baseUrl(null, null)
+ 3 APPPATH\Views\estudiantes\index.php(18): base_url(null)
+ 4 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\escuela\\app\\Views\\estudiantes\\index.php')
+ 5 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('estudiantes/index', [], true)
+ 7 APPPATH\Controllers\EstudiantesController.php(47): view('estudiantes/index', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+10 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-26 19:57:36 --> Return value of CodeIgniter\HTTP\SiteURI::stringifyRelativePath() must be of the type string, null returned
+in SYSTEMPATH\HTTP\SiteURI.php on line 401.
+ 1 SYSTEMPATH\HTTP\SiteURI.php(375): CodeIgniter\HTTP\SiteURI->stringifyRelativePath(null)
+ 2 SYSTEMPATH\Helpers\url_helper.php(54): CodeIgniter\HTTP\SiteURI->baseUrl(null, null)
+ 3 APPPATH\Views\estudiantes\index.php(18): base_url(null)
+ 4 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\escuela\\app\\Views\\estudiantes\\index.php')
+ 5 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('estudiantes/index', [], true)
+ 7 APPPATH\Controllers\EstudiantesController.php(47): view('estudiantes/index', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+10 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-26 19:58:30 --> Too few arguments to function App\Controllers\EstudiantesController::generarExcel_Filtro(), 0 passed in C:\xampp\htdocs\escuela\system\CodeIgniter.php on line 919 and exactly 1 expected
+in APPPATH\Controllers\EstudiantesController.php on line 194.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\EstudiantesController->generarExcel_Filtro()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstudiantesController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

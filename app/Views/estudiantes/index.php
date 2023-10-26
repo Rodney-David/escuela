@@ -15,7 +15,8 @@
 <?php endif; ?>
   <a class="btn btn-primary" href="<?= base_url("create-estudiantes") ?>">Añadir Estudiante</a>
   <a class="btn btn-success" href="<?= base_url("generarExcel_estudiantes") ?>">Generar Excel</a>
-<?php if (!empty($estudiantes) && is_array($estudiantes)): ?>
+  <a class="btn btn-success" href="<?= base_url("generarExcel_estudiantes_Filtro/" .$nombres) ?>">Generar Excel con Filtro</a>
+
   <div class="accordion accordion-flush" id="accordionFlushExample">
     <div class="accordion-item">
       <h2 class="accordion-header" id="flush-headingOne">
@@ -25,34 +26,40 @@
       </h2>
       <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
         <div class="accordion-body">
-          <form action="" >
-              <div>
-                <label for="">Nombre:</label>
-                <input type="text" name="nombres">
-              </div>
-              <div>
-                <label for="">Apellido:</label>
-                <input type="text" name="apellidos">
-              </div>
-              <select class="form-select" aria-label="Default select example" name="sexo">
-                <option selected>Seleccionar sexo:</option>
+          <form class="row g-3" action="estudiantes">
+            <div class="col-md-6">
+              <label for="inputEmail4" class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="nombres" name="nombres">
+            </div>
+            <div class="col-md-6">
+              <label for="inputEmail4" class="form-label">Apellido</label>
+              <input type="text" class="form-control" id="apellidos" name="apellidos">
+            </div>
+            <div class="col-md-6">
+              <label for="inputState" class="form-label">Sexo</label>
+              <select id="inputState" class="form-select" name="sexo">
+                <option value="" selected>Seleccionar Sexo</option>
                 <option value="M">Masculino</option>
                 <option value="F">Femenino</option>
               </select>
-              <div>
-                <label for="">Email:</label>
-                <input type="email" name="email">
-              </div>
-              <div>
-                <label for="">Direccion:</label>
-                <input type="text" name="direccion">
-              </div>
-              <button type="submit" class="">Buscar</button>
+            </div>
+            <div class="col-md-6">
+              <label for="inputEmail4" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" name="email">
+            </div>
+            <div class="col-12">
+              <label for="inputAddress" class="form-label">Dirección</label>
+              <input type="text" class="form-control" id="direccion" name="direccion">
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary">Buscar</button>
+            </div>
           </form>
         </div>
       </div>
     </div>
   </div>
+<?php if (!empty($estudiantes) && is_array($estudiantes)): ?>
   <div class="table-responsive">
     <table class="table">
     <thead>
@@ -74,7 +81,7 @@
             <th scope="row"><?= $estudiante['id'] //$contador ?></th>
             <td><?= $estudiante['nombres'] ?></td>
             <td><?= $estudiante['apellidos'] ?></td>
-            <td><?php echo $inscripcion['estado']== '1' ? 'Activo' : 'Inactivo' ?></td>
+            <td><?php echo $estudiante['sexo']== 'M' ? 'Masculino' : 'Femenino' ?></td>
             <td><?= $estudiante['email'] ?></td>
             <td><?= $estudiante['fecha_nacimiento'] ?></td>
             <td><?= $estudiante['direccion'] ?></td>

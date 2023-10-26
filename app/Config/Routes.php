@@ -47,4 +47,5 @@ $routes->post('/actualizar_materias/(:num)', 'MateriasController::actualizar/$1'
 $routes->get('/eliminar_materias/(:num)', 'MateriasController::eliminar/$1');
 
 $routes->get('/generarExcel_estudiantes', 'EstudiantesController::generarExcel');
+$routes->get('/generarExcel_estudiantes_Filtro/(:num)/', 'EstudiantesController::generarExcel_Filtro/$1/');
 $routes->get('/generarExcel_inscripciones/(:num)', 'CursosController::generarExcel/$1');

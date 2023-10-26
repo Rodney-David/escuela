@@ -101,12 +101,37 @@ class CursosController extends BaseController
         }
     }
 
-
     public function ver($id){
         $mcurso = new Cursos();
         $data['curso'] = $mcurso->find($id);
 
         $inscripciones = new Inscripciones();
+        
+        $nombre_estudiante = $this->request->getGet('nombre_estudiante');
+        $apellidos_estudiante = $this->request->getGet('apellidos_estudiante');
+        $nivel_curso = $this->request->getGet('nivel_curso');
+        $seccion_curso = $this->request->getGet('seccion_curso');
+    
+        $inscripciones->join('estudiantes AS e', 'e.id = inscripciones.estudiantes_id', 'left');
+        $inscripciones->join('cursos AS c', 'c.id = inscripciones.cursos_id', 'left');
+
+    
+        if (!empty($nombre_estudiante)) {
+            $inscripciones->like('e.nombres', $nombre_estudiante);
+        }
+    
+        if (!empty($apellidos_estudiante)) {
+            $inscripciones->like('e.apellidos', $apellidos_estudiante);
+        }
+    
+        if (!empty($nivel_curso)) {
+            $inscripciones->like('c.nivel', $nivel_curso);
+        }
+    
+        if (!empty($seccion_curso)) {
+            $inscripciones->like('c.seccion', $seccion_curso);
+        }
+
         $data['inscripciones'] = $inscripciones->where('cursos_id', $id)->mostrar($inscripciones);
         $paginador = $inscripciones->pager;
         $data['paginador'] = $paginador;
