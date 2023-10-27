@@ -19,6 +19,12 @@
         <input type="text" class="form-control" name="periodo" id="periodo" value="<?= $curso['periodo'] ?>" required>
         <label for="floatingInput">Periodo</label>
     </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="1" id="flexCheckDefault" name="estado" <?php echo  $curso['estado'] == "1" ? 'checked' : '' ?>>
+        <label class="form-check-label" for="flexCheckDefault">
+            Estado
+        </label>
+    </div>
     <input type="hidden" name="id" value="<?= $curso['id'] ?>">
     <button type="submit" class="btn btn-primary">Guardar</button>
 </form>

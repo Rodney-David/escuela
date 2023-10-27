@@ -1,7 +1,7 @@
 <?= $this->extend('template/index') ?>
 <?= $this->section('content') ?>
 
-<h1>ESTUDIANTES</h1>
+<h1>DOCENTES</h1>
 <?php if (session()->has('success')): ?>
     <div class="alert alert-success">
         <?= session('success') ?>
@@ -13,9 +13,8 @@
         <?= session('error') ?>
     </div>
 <?php endif; ?>
-  <a class="btn btn-primary" href="<?= base_url("create_estudiantes") ?>">Añadir Estudiante</a>
-  <a class="btn btn-success" href="<?= base_url("generarExcel_estudiantes") ?>">Generar Excel</a>
-  <a class="btn btn-success" href="<?= base_url("generarExcel_estudiantes_Filtro/" .$nombres) ?>">Generar Excel con Filtro</a>
+  <a class="btn btn-primary" href="<?= base_url("create_docentes") ?>">Añadir docente</a>
+  <a class="btn btn-success" href="<?= base_url("generarExcel_docentes") ?>">Generar Excel</a>
 
   <div class="accordion accordion-flush" id="accordionFlushExample">
     <div class="accordion-item">
@@ -26,7 +25,7 @@
       </h2>
       <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
         <div class="accordion-body">
-          <form class="row g-3" action="estudiantes">
+          <form class="row g-3" action="docentes">
             <div class="col-md-6">
               <label for="inputEmail4" class="form-label">Nombre</label>
               <input type="text" class="form-control" id="nombres" name="nombres">
@@ -59,7 +58,7 @@
       </div>
     </div>
   </div>
-<?php if (!empty($estudiantes) && is_array($estudiantes)): ?>
+<?php if (!empty($docentes) && is_array($docentes)): ?>
   <div class="table-responsive">
     <table class="table">
     <thead>
@@ -76,37 +75,36 @@
         </tr>
       </thead>
       <tbody>
-      <?php //$contador = 1; 
-        foreach ($estudiantes as $estudiante): ?>
+      <?php
+        foreach ($docentes as $docente): ?>
           <tr>
-            <th scope="row"><?= $estudiante['id'] //$contador ?></th>
-            <td><?= $estudiante['nombres'] ?></td>
-            <td><?= $estudiante['apellidos'] ?></td>
-            <td><?php echo $estudiante['sexo']== 'M' ? 'Masculino' : 'Femenino' ?></td>
-            <td><?= $estudiante['email'] ?></td>
-            <td><?= $estudiante['fecha_nacimiento'] ?></td>
-            <td><?= $estudiante['direccion'] ?></td>
-            <td style="color:<?= $estudiante['estado']== '1' ? 'Green' : 'Red' ?>"><?php echo $estudiante['estado']== '1' ? 'Activo' : 'Inactivo' ?></td>
+            <th scope="row"><?= $docente['id']?></th>
+            <td><?= $docente['nombres'] ?></td>
+            <td><?= $docente['apellidos'] ?></td>
+            <td><?php echo $docente['sexo']== 'M' ? 'Masculino' : 'Femenino' ?></td>
+            <td><?= $docente['email'] ?></td>
+            <td><?= $docente['fecha_nacimiento'] ?></td>
+            <td><?= $docente['direccion'] ?></td>
+            <td style="color:<?= $docente['estado']== '1' ? 'Green' : 'Red' ?>"><?php echo $docente['estado']== '1' ? 'Activo' : 'Inactivo' ?></td>
             <td> 
               <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Opciones
                 </button>
                 <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="<?= base_url("editar_estudiantes/".$estudiante['id']) ?>">Editar</a></li>
-                      <li><a class="dropdown-item" href="<?= base_url("eliminar_estudiantes/".$estudiante['id']) ?>">Eliminar</a></li>
+                      <li><a class="dropdown-item" href="<?= base_url("editar_docentes/".$docente['id']) ?>">Editar</a></li>
+                      <li><a class="dropdown-item" href="<?= base_url("eliminar_docentes/".$docente['id']) ?>">Eliminar</a></li>
                 </ul>
               </div>
             </td>
           </tr>
         <?php 
-        //$contador++;
         endforeach; ?>
       </tbody>
     </table>
   </div>
 <?php else: ?>
-  <p>No hay estudiantes registrados.</p>
+  <p>No hay docentes registrados.</p>
 <?php endif; ?>
 <?php echo $paginador->links();?>
 

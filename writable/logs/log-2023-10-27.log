@@ -1,0 +1,9 @@
+CRITICAL - 2023-10-27 15:14:15 --> "docentes" is not a valid rule.
+in SYSTEMPATH\Controller.php on line 182.
+ 1 SYSTEMPATH\Controller.php(182): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('docentes')
+ 2 SYSTEMPATH\Controller.php(148): CodeIgniter\Controller->setValidator('docentes', [])
+ 3 APPPATH\Controllers\DocentesController.php(100): CodeIgniter\Controller->validate('docentes')
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\DocentesController->actualizar('120')
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DocentesController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

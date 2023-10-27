@@ -6,7 +6,7 @@
         <?= session('error') ?>
     </div>
 <?php endif; ?>
-<form method="post" action="<?= base_url('actualizar-estudiantes/'.$estudiante['id']) ?>">
+<form method="post" action="<?= base_url('actualizar_estudiantes/'.$estudiante['id']) ?>">
     <div class="form-floating mb-3">
         <input type="text" class="form-control" name="nombres" id="nombres" value="<?= $estudiante['nombres'] ?>" required>
         <label for="floatingInput">Nombres</label>
@@ -31,6 +31,12 @@
     <div class="form-floating mb-3">
         <input type="text" class="form-control" name="direccion" id="direccion" value="<?= $estudiante['direccion'] ?>" required>
         <label for="floatingInput">Direccion</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="1" id="flexCheckDefault" name="estado" <?php echo  $estudiante['estado'] == "1" ? 'checked' : '' ?>>
+        <label class="form-check-label" for="flexCheckDefault">
+            Estado
+        </label>
     </div>
     <input type="hidden" name="id" value="<?= $estudiante['id'] ?>">
     <button type="submit" class="btn btn-primary">Guardar</button>

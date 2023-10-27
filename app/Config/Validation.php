@@ -75,4 +75,12 @@ class Validation extends BaseConfig
         'nombre' => 'required|regex_match[/^[\pL\sñÑáéíóúÁÉÍÓÚüÜ0-9\-]+$/u]|max_length[50]',
         'codigo' => 'required|regex_match[/^[a-zA-Z0-9]+$/]',
     ];
+
+    public $docentes = [
+        'nombres' => 'required|min_length[3]|max_length[50]|regex_match[/^[\pL\sñÑáéíóúÁÉÍÓÚüÜ]+$/u]',
+        'apellidos' => 'required|min_length[3]|max_length[50]',
+        'email' => 'required|valid_email',
+        'fecha_nacimiento' => 'required|valid_date[Y-m-d]',
+        'direccion' => 'required|min_length[4]|max_length[100]|regex_match[/^[\pL\sñÑáéíóúÁÉÍÓÚüÜ0-9\-]+$/u]',
+    ];
 }

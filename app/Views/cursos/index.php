@@ -13,7 +13,7 @@
         <?= session('error') ?>
     </div>
 <?php endif; ?>
-  <a class="btn btn-primary" href="<?= base_url("create-cursos") ?>">Añadir Curso</a>
+  <a class="btn btn-primary" href="<?= base_url("create_cursos") ?>">Añadir Curso</a>
 <?php if (!empty($cursos) && is_array($cursos)): ?>
   <table class="table">
   <thead>
@@ -22,6 +22,7 @@
         <th>Nivel</th>
         <th>Seccion</th>
         <th>Periodo</th>
+        <th>Estado</th>
         <th>Opciones</th>
       </tr>
     </thead>
@@ -32,14 +33,15 @@
           <td><?= $curso['nivel'] ?></td>
           <td><?= $curso['seccion'] ?></td>
           <td><?= $curso['periodo'] ?></td>
+          <td style="color:<?= $curso['estado']== '1' ? 'Green' : 'Red' ?>"><?php echo $curso['estado']== '1' ? 'Activo' : 'Inactivo' ?></td>
           <td><div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Opciones
             </button>
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="<?= base_url("ver_inscripciones/".$curso['id']) ?>">Ver</a></li>
-                <li><a class="dropdown-item" href="<?= base_url("editar-cursos/".$curso['id']) ?>">Editar</a></li>
-                <li><a class="dropdown-item" href="<?= base_url("eliminar-cursos/".$curso['id']) ?>">Eliminar</a></li>
+                <li><a class="dropdown-item" href="<?= base_url("editar_cursos/".$curso['id']) ?>">Editar</a></li>
+                <li><a class="dropdown-item" href="<?= base_url("eliminar_cursos/".$curso['id']) ?>">Eliminar</a></li>
             </ul>
           </div>
           </td>

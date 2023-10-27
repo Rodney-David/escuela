@@ -249,23 +249,23 @@
             </li>
             <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" href="<?= base_url("cursos") ?>">
-              <i class="fa-solid fa-chalkboard-user"></i>
+              <i class="fa-solid fa-chalkboard"></i>
                 Cursos 
               </a> <!--cart-->
             </li>
             <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" href="<?= base_url("materias") ?>">
-                <i class="fa-solid fa-book"></i>
+              <i class="fa-solid fa-book"></i>
                 Materias
               </a>
             </li>
-            <!--<li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="#">
-                <svg class="bi"><use xlink:href="#graph-up"/></svg>
-                Reports
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center gap-2" href="<?= base_url("docentes") ?>">
+              <i class="fa-solid fa-chalkboard-user"></i>
+                Docentes
               </a>
             </li>
-            <li class="nav-item">
+            <!--<li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" href="#">
                 <svg class="bi"><use xlink:href="#puzzle"/></svg>
                 Integrations

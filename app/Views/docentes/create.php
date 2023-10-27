@@ -1,6 +1,6 @@
 <?= $this->extend('template/index') ?>
 <?= $this->section('content') ?>
-<h1>AÑADIR ESTUDIANTE</h1>
+<h1>AÑADIR DOCENTE</h1>
 <?php if (session()->has('success')): ?>
     <div class="alert alert-success">
         <?= session('success') ?>
@@ -11,7 +11,7 @@
         <?= session('error') ?>
     </div>
 <?php endif; ?>
-<form method="post" action="<?= base_url()."registro_de_estudiantes" ?>" >
+<form method="post" action="<?= base_url()."registro_de_docentes" ?>" >
     <div class="form-floating mb-3">
         <input type="text" class="form-control" name="nombres" id="nombres" value="<?= old("nombres") ?>" required>
         <label for="floatingInput">Nombres</label>

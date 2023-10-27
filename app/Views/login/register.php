@@ -159,7 +159,7 @@
         <?= session('error') ?>
     </div>
 <?php endif; ?>
-  <form method="post" action="<?= base_url()."registro-de-usuarios" ?>">
+  <form method="post" action="<?= base_url()."registro_de_usuarios" ?>">
     <img class="mb-4" src="<?= base_url()."recursos/img/logo.png" ?>" alt="" width="72" height="57">
     <h1 class="h3 mb-3 fw-normal">Registrarse</h1>
 

@@ -69,7 +69,7 @@ class CursosController extends BaseController
                         'nivel' => $this->request->getPost('nivel'),
                         'seccion' => $this->request->getPost('seccion'),
                         'periodo' => $this->request->getPost('periodo'),
-                        'estado' => 1,
+                        'estado' => $this->request->getPost('estado'),
                     ]
                 ); 
                 return redirect()->to(base_url()."cursos");
