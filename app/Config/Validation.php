@@ -83,4 +83,11 @@ class Validation extends BaseConfig
         'fecha_nacimiento' => 'required|valid_date[Y-m-d]',
         'direccion' => 'required|min_length[4]|max_length[100]|regex_match[/^[\pL\sñÑáéíóúÁÉÍÓÚüÜ0-9\-]+$/u]',
     ];
+
+    public $materias_cursos = [
+        'materias_id' => 'required|numeric',
+        'docentes_id' => 'required|numeric',
+    ];
+
+    
 }

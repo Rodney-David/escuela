@@ -40,6 +40,7 @@
             </button>
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="<?= base_url("ver_inscripciones/".$curso['id']) ?>">Ver</a></li>
+                <li><a class="dropdown-item" href="<?= base_url("ver_materias/".$curso['id']) ?>">Materias</a></li>
                 <li><a class="dropdown-item" href="<?= base_url("editar_cursos/".$curso['id']) ?>">Editar</a></li>
                 <li><a class="dropdown-item" href="<?= base_url("eliminar_cursos/".$curso['id']) ?>">Eliminar</a></li>
             </ul>

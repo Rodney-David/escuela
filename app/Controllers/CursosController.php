@@ -4,7 +4,10 @@ namespace App\Controllers;
 
 use App\Models\Cursos;
 use App\Models\Estudiantes;
+use App\Models\Docentes;
 use App\Models\Inscripciones;
+use App\Models\Materias;
+use App\Models\Materias_cursos;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
@@ -287,4 +290,91 @@ class CursosController extends BaseController
         $writer->save('php://output');
         exit;
     }
+
+    public function ver_materias($id){
+        $mcurso = new Cursos();
+        $data['curso'] = $mcurso->find($id);
+
+        $materias_cursos = new Materias_cursos();
+        
+        $nombre_materias = $this->request->getGet('nombre_materias');
+        $codigo_materias = $this->request->getGet('codigo_materias');
+        $nombre_docentes = $this->request->getGet('nombre_docentes');
+        $apellido_docentes = $this->request->getGet('apellido_docentes');
+    
+        $materias_cursos->join('materias AS m', 'm.id = materias_cursos.materias_id', 'left');
+        $materias_cursos->join('cursos AS c', 'c.id = materias_cursos.cursos_id', 'left');
+        $materias_cursos->join('docentes AS d', 'd.id = materias_cursos.docentes_id', 'left');
+
+    
+        if (!empty($nombre_materias)) {
+            $materias_cursos->like('m.nombre', $nombre_materias);
+        }
+    
+        if (!empty($codigo_materias)) {
+            $materias_cursos->like('m.codigo', $codigo_materias);
+        }
+    
+        if (!empty($nombre_docentes)) {
+            $materias_cursos->like('d.nombres', $nombre_docentes);
+        }
+    
+        if (!empty($apellido_docentes)) {
+            $materias_cursos->like('d.apellidos', $apellido_docentes);
+        }
+
+        $data['materias_cursos'] = $materias_cursos->where('cursos_id', $id)->mostrar($materias_cursos);
+        $paginador = $materias_cursos->pager;
+        $data['paginador'] = $paginador;
+
+        if ($data) { 
+            return view('cursos/show_materias', $data);
+        } else {
+            return redirect()->to(base_url()."cursos");
+        }
+    }
+
+    public function inscribir_materias($id){
+        $curso = new Cursos();
+        $data['curso'] = $curso->find($id);
+
+        $mmaterias = new Materias();
+        $data['materias'] = $mmaterias->findAll();
+
+        $mdocentes = new Docentes();
+        $data['docentes'] = $mdocentes->findAll();
+
+        if ($data) {
+            return view('cursos/asignarMateria', $data);
+        } 
+        else {
+            return redirect()->to(base_url()."cursos");
+        }
+    }
+
+    public function guardarInscripcion_materias($id){
+
+        $mmaterias_cursos = new Materias_cursos();
+
+        if($this->validate('materias_cursos')){
+            //$minscripcion->verificarInscripcion($this->request->getPost('estudiantes_id'));
+            //return  redirect()->to(base_url()."inscribir-cursos/".$id)->with('error', 'El estudiante ya esta inscrito en el');
+            $mmaterias_cursos->insert(
+                [
+                    'materias_id' => $this->request->getPost('materias_id'),
+                    'docentes_id' => $this->request->getPost('docentes_id'),
+                    'cursos_id' => $id,
+                    'estado' => 1,
+                ]
+            ); 
+            return redirect()->to(base_url()."ver_materias/".$id)->with('success', 'Materia asignada');
+        }
+        return  redirect()->to(base_url()."asignarMateria/".$id)->with('error', 'La validación de datos falló. Por favor, revisa tus entradas:<br>
+                                                                            - Materia (obligatorio)<br>
+                                                                            - Docente (obligatorio)');
+
+    }
+
+
+    
 }

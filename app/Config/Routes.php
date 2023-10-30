@@ -57,3 +57,10 @@ $routes->post('/registro_de_docentes', 'DocentesController::guardar');
 $routes->get('/editar_docentes/(:num)', 'DocentesController::editar/$1');
 $routes->post('/actualizar_docentes/(:num)', 'DocentesController::actualizar/$1');
 $routes->get('/eliminar_docentes/(:num)', 'DocentesController::eliminar/$1');
+
+$routes->get('/ver_materias/(:num)', 'CursosController::ver_materias/$1');
+$routes->get('/inscribir_cursos_materia/(:num)', 'CursosController::inscribir_materias/$1');
+$routes->post('/guardar_inscripcion_materia/(:num)', 'CursosController::guardarInscripcion_materias/$1');
+$routes->get('/edit_inscripcion_materia/(:num)', 'CursosController::editar_inscripcion_materias/$1');
+$routes->post('/actualizar_inscripcion_materia/(:num)', 'CursosController::actualizarInscripcion_materias/$1');
+$routes->get('/eliminar_inscripcion_materia/(:num)', 'CursosController::eliminar_inscripcion_materias/$1');
