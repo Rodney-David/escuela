@@ -6,6 +6,7 @@ class Home extends BaseController
 {
     public function index(): string
     {
+        print_r($_SESSION['usuario']);
         return view('index');
     }
 

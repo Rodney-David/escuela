@@ -54,7 +54,11 @@ class Login extends BaseController
             if ($datosUsuario != null && password_verify($password, $datosUsuario['password'])){
                 $data = ['usuario' => $datosUsuario[0]['username'], "type" => $datosUsuario[0]['type']];
                 $session = session();
-                $session->set($data);
+                $datos['user'] = $datosUsuario['username'];
+                $datos['email'] = $datosUsuario['email'];
+                $datos['login'] = 1;
+                $session->set("usuario",$datos);
+                
                 return redirect()->to(base_url()."dashboard/index");
             }else{
                 return redirect()->back()->with('error', 'Usuario o contraseña incorrectos.');
