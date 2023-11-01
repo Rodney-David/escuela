@@ -8,6 +8,7 @@ use App\Models\Docentes;
 use App\Models\Inscripciones;
 use App\Models\Materias;
 use App\Models\Materias_cursos;
+use App\Models\Notas_materias;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
@@ -164,10 +165,12 @@ class CursosController extends BaseController
     public function guardarInscripcion($id){
 
         $minscripcion = new Inscripciones();
+        $estudiante = $this->request->getPost('estudiantes_id');
 
         if($this->validate('inscripcion')){
-            //$minscripcion->verificarInscripcion($this->request->getPost('estudiantes_id'));
-            //return  redirect()->to(base_url()."inscribir-cursos/".$id)->with('error', 'El estudiante ya esta inscrito en el');
+            if($minscripcion->verificarInscripcionExistente($id, $estudiante) > 0){
+                return redirect()->back()->with('error', 'El estudiante está inscrito a este curso');
+            }
             $minscripcion->insert(
                 [
                     'estudiantes_id' => $this->request->getPost('estudiantes_id'),
@@ -177,9 +180,8 @@ class CursosController extends BaseController
             ); 
             return redirect()->to(base_url()."ver_inscripciones/".$id)->with('success', 'Curso creado');
         }
-        return  redirect()->to(base_url()."inscribir-cursos/".$id)->with('error', 'La validación de datos falló. Por favor, revisa tus entradas:<br>
+        return  redirect()->to(base_url()."inscribir_cursos/".$id)->with('error', 'La validación de datos falló. Por favor, revisa tus entradas:<br>
                                                                             - Estudiante (obligatorio)');
-
     }
 
     public function editar_inscripcion($id){
@@ -207,7 +209,7 @@ class CursosController extends BaseController
                 'estado' => $estado == '1' ? '1' : '0',
             ];
             $minscripcion->update($id, $data);
-            return redirect()->to(base_url()."ver-cursos/".$inscripcion['cursos_id'])->with('success', 'Curso creado');
+            return redirect()->to(base_url()."ver_cursos/".$inscripcion['cursos_id'])->with('success', 'Curso creado');
         } else {
             return redirect()->to(base_url()."cursos");
         }
@@ -353,9 +355,12 @@ class CursosController extends BaseController
     }
 
     public function guardarInscripcion_materias($id){
-
         $mmaterias_cursos = new Materias_cursos();
+        $materia = $this->request->getPost('materias_id');
 
+        if($mmaterias_cursos->verificarAsignacionMateria($id, $materia) > 0){
+            return redirect()->back()->with('error', 'La materia ya está asignada a este curso');
+        }
         if($this->validate('materias_cursos')){
             //$minscripcion->verificarInscripcion($this->request->getPost('estudiantes_id'));
             //return  redirect()->to(base_url()."inscribir-cursos/".$id)->with('error', 'El estudiante ya esta inscrito en el');
@@ -369,12 +374,162 @@ class CursosController extends BaseController
             ); 
             return redirect()->to(base_url()."ver_materias/".$id)->with('success', 'Materia asignada');
         }
-        return  redirect()->to(base_url()."asignarMateria/".$id)->with('error', 'La validación de datos falló. Por favor, revisa tus entradas:<br>
+        return  redirect()->to(base_url()."inscribir_cursos_materia/".$id)->with('error', 'La validación de datos falló. Por favor, revisa tus entradas:<br>
                                                                             - Materia (obligatorio)<br>
                                                                             - Docente (obligatorio)');
 
     }
 
+    public function editar_inscripcion_materias($id){
+        $mmaterias_cursos = new Materias_cursos();
+        $data['materias_cursos'] = $mmaterias_cursos->find($id);
 
+        $mmaterias = new Materias();
+        $data['materias'] = $mmaterias->findAll();
+
+        $mdocentes = new Docentes();
+        $data['docentes'] = $mdocentes->findAll();
+
+        if ($data) {
+            return view('cursos/edit_materia', $data);
+        } 
+        else {
+            return redirect()->to(base_url()."cursos");
+        }
+    }
+
+    public function actualizarInscripcion_materias($id){
+        $mmaterias_cursos = new Materias_cursos();
+        $materias_cursos = $mmaterias_cursos->find($id);
+    
+        if ($materias_cursos) {
+            $estado = $this->request->getVar('estado');
+            $data = [
+                'materias_id' => $this->request->getPost('materias_id'),
+                'docentes_id' => $this->request->getPost('docentes_id'),
+                'estado' => $estado == '1' ? '1' : '0',
+            ];
+            $mmaterias_cursos->update($id, $data);
+            return redirect()->to(base_url()."ver_materias/".$materias_cursos['cursos_id'])->with('success', 'Asignación actualizada');
+        } else {
+            return redirect()->to(base_url()."cursos");
+        }
+    }
+
+    public function eliminar_inscripcion_materias($id){
+        $mmaterias_cursos = new Materias_cursos();
+        $materias_cursos = $mmaterias_cursos->find($id);
+
+        if($materias_cursos){
+            $mmaterias_cursos->delete($id);
+            return redirect()->back()->with('success', 'Asignación Eliminada');
+        }
+        else {
+            return redirect()->back()->with('error', 'Inscripcion no Eliminada');
+        }
+    }
+
+    public function generarExcel_materias($id) {
+        $spreadsheet = new Spreadsheet();
+        $activeWorksheet = $spreadsheet->getActiveSheet();
+        
+        $activeWorksheet->getColumnDimension('A')->setWidth(20);
+        $activeWorksheet->getColumnDimension('B')->setWidth(20);
+        $activeWorksheet->getColumnDimension('C')->setWidth(20);
+
+        $alignment = [
+            'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+            'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,
+        ];
+        $activeWorksheet->getStyle('A1:C1')->getAlignment()->applyFromArray($alignment);
+        $activeWorksheet->getStyle('A2:C2')->getAlignment()->applyFromArray($alignment);
+
+        $titleFont = [
+            'bold' => true,
+        ];
+        $activeWorksheet->getStyle('A1:C1')->getFont()->applyFromArray($titleFont);
+        $activeWorksheet->getStyle('A2:C2')->getFont()->applyFromArray($titleFont);
+
+        $mcursos = new Cursos();
+        $curso = $mcursos->find($id);
+
+        $mmaterias_cursos = new Materias_cursos();
+        $materias_cursos = $mmaterias_cursos
+            ->where('cursos_id', $id)
+            ->join('materias', 'materias_cursos.materias_id = materias.id')
+            ->join('docentes', 'materias_cursos.docentes_id = docentes.id')
+            ->select('materias_cursos.id, materias.nombre, docentes.nombres, docentes.apellidos')
+            ->findAll();
+
+        if ($curso) {
+            $activeWorksheet->mergeCells('A1:C1');
+            $activeWorksheet->setCellValue('A1', 'Curso: ' . $curso['nivel'] . ' - ' . $curso['seccion']);
+
+            $activeWorksheet->setCellValue('A2', 'Id Asignación');
+            $activeWorksheet->setCellValue('B2', 'Materia');
+            $activeWorksheet->setCellValue('C2', 'Docente');
+
+            $cont = 3;
+
+            foreach ($materias_cursos as $materias_c) {
+                $activeWorksheet->setCellValue('A' . $cont, $materias_c['id']);
+                $activeWorksheet->setCellValue('B' . $cont, $materias_c['nombre']);
+                $activeWorksheet->setCellValue('C' . $cont, $materias_c['nombres'] . ' ' . $materias_c['apellidos']);
+
+                $activeWorksheet->getStyle('A' . $cont . ':E' . $cont)->getAlignment()->applyFromArray($alignment);
+
+                $cont++;
+            }
+        } 
+        else {
+            $activeWorksheet->setCellValue('A1', 'Curso no encontrado');
+        }
+    
+        $writer = new Xlsx($spreadsheet);
+    
+        // Configura las cabeceras HTTP para forzar la descarga del archivo
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment;filename="materiasAsignadas.xlsx"');
+        header('Cache-Control: max-age=0');
+        $writer->save('php://output');
+        exit;
+    }
+
+    public function ver_materias_notas($id){
+        $mcurso = new Cursos();
+        $data['curso'] = $materia = $this->request->getPost('cursos_id');
+
+        $mmateria = new Materias();
+        $data['materia'] = $mmateria->find($id);
+
+        $minscripcion = new Inscripciones();
+        $data['inscripcion'] = $minscripcion->find($id);
+
+        $notas_materias = new Notas_materias();
+        
+        $nombre_estudiante = $this->request->getGet('nombre_estudiante');
+        $apellidos_estudiante = $this->request->getGet('apellidos_estudiante');
+    
+        $notas_materias->join('estudiantes AS e', 'e.id = notas_materias.estudiantes_id', 'left');
+        $notas_materias->join('materias AS m', 'm.id = notas_materias.materias_id', 'left');
+    
+        if (!empty($nombre_estudiante)) {
+            $notas_materias->like('e.nombres', $nombre_estudiante);
+        }
+    
+        if (!empty($apellidos_estudiante)) {
+            $notas_materias->like('e.apellidos', $apellidos_estudiante);
+        }
+
+        $data['notas_materias'] = $notas_materias->where('materias_id', $id)->mostrar($notas_materias);
+        $paginador = $notas_materias->pager;
+        $data['paginador'] = $paginador;
+
+        if ($data) { 
+            return view('cursos/ver_notas', $data);
+        } else {
+            return redirect()->to(base_url()."cursos");
+        }
+    }
     
 }

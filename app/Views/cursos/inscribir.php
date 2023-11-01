@@ -6,7 +6,7 @@
         <?= session('error') ?>
     </div>
 <?php endif; ?>
-<form method="post" action="<?= base_url('guardar-inscripcion/'.$curso['id']) ?>">
+<form method="post" action="<?= base_url('guardar_inscripcion/'.$curso['id']) ?>">
 <select class="form-select" aria-label="Default select example" name="estudiantes_id">
   <option selected>Seleccionar Estudiante</option>
   <?php foreach($estudiantes as $estudiante){

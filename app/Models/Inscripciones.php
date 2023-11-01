@@ -24,6 +24,13 @@ class Inscripciones extends Model{
         return $this->select('inscripciones.*')
                             ->where('estudiantes_id', $id)->countAllResults();
     }
+
+    
+    public function verificarInscripcionExistente($id, $estudiante){
+        return $this->select('inscripciones.*')
+                            ->where('cursos_id', $id)
+                            ->where('estudiantes_id', $estudiante)->countAllResults();
+    }
     
     public function verificarInscripcionCurso($id){
         return $this->select('inscripciones.*')

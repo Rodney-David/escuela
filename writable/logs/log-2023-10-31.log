@@ -1,0 +1,79 @@
+CRITICAL - 2023-10-31 15:27:30 --> Call to a member function verificarAsignacionMateria() on null
+in APPPATH\Controllers\CursosController.php on line 360.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->guardarInscripcion_materias('4')
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-31 16:39:05 --> Invalid file: "cursos/.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('cursos/.php')
+ 2 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/', [], true)
+ 3 APPPATH\Controllers\CursosController.php(533): view('cursos/', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver_materias_notas('8')
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-31 17:00:26 --> Class 'App\Controllers\Notas_cursos' not found
+in APPPATH\Controllers\CursosController.php on line 501.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver_materias_notas('8')
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-31 17:01:06 --> Class 'App\Controllers\Notas_materias' not found
+in APPPATH\Controllers\CursosController.php on line 501.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver_materias_notas('8')
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-31 17:01:49 --> Invalid file: "cursos/notas_materias.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('cursos/notas_materias.php')
+ 2 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/notas_materias', [], true)
+ 3 APPPATH\Controllers\CursosController.php(523): view('cursos/notas_materias', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver_materias_notas('8')
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-10-31 17:02:17 --> Call to a member function links() on null
+in APPPATH\Views\cursos\ver_notas.php on line 97.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('cursos/ver_notas', [], true)
+ 4 APPPATH\Controllers\CursosController.php(523): view('cursos/ver_notas', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver_materias_notas('8')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-10-31 17:25:42 --> mysqli_sql_exception: Unknown column 'cursos.estudiantes_id' in 'on clause' in C:\xampp\htdocs\escuela\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\escuela\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\escuela\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\escuela\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\escuela\system\Database\BaseBuilder.php(1699): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\escuela\system\Model.php(599): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+#5 C:\xampp\htdocs\escuela\system\BaseModel.php(1203): CodeIgniter\Model->countAllResults(false)
+#6 C:\xampp\htdocs\escuela\app\Models\Notas_materias.php(21): CodeIgniter\BaseModel->paginate(15)
+#7 C:\xampp\htdocs\escuela\app\Controllers\CursosController.php(521): App\Models\Notas_materias->mostrar(Object(App\Models\Notas_materias))
+#8 C:\xampp\htdocs\escuela\system\CodeIgniter.php(919): App\Controllers\CursosController->ver_materias_notas('3')
+#9 C:\xampp\htdocs\escuela\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+#10 C:\xampp\htdocs\escuela\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\escuela\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-10-31 17:25:42 --> Unknown column 'cursos.estudiantes_id' in 'on clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1699): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `notas_materias`
+LEFT JOIN `estudiantes` AS `e` ON `e`.`id` = `notas_materias`.`estudiantes_id`
+LEFT JOIN `materias` AS `m` ON `m`.`id` = `notas_materias`.`materias_id`
+LEFT JOIN `materias` ON `materias`.`id` = `notas_materias`.`materias_id`
+LEFT JOIN `estudiantes` ON `estudiantes`.`id` = `notas_materias`.`estudiantes_id`
+LEFT JOIN `cursos` ON `cursos`.`estudiantes_id` = `notas_materias`.`estudiantes_id`
+WHERE `materias_id` = :materias_id:', [...], false)
+ 2 SYSTEMPATH\Model.php(599): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+ 3 SYSTEMPATH\BaseModel.php(1203): CodeIgniter\Model->countAllResults(false)
+ 4 APPPATH\Models\Notas_materias.php(21): CodeIgniter\BaseModel->paginate(15)
+ 5 APPPATH\Controllers\CursosController.php(521): App\Models\Notas_materias->mostrar(Object(App\Models\Notas_materias))
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\CursosController->ver_materias_notas('3')
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CursosController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

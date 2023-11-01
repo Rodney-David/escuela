@@ -1,6 +1,6 @@
 <?= $this->extend('template/index') ?>
 <?= $this->section('content') ?>
-<h1>MATERIAS ASIGNADAS</h1>
+<h1>NOTAS ESTUDIANTES</h1>
 <?php if (session()->has('error')): ?>
     <div class="alert alert-danger">
         <?= session('error') ?>
@@ -13,8 +13,8 @@
 <?php endif; ?>
 
 <h2>Curso: <?= $curso['nivel'] . '/' . $curso['seccion'] . ' - ' . $curso['periodo'] ?></h2>
-<a href="<?= base_url("inscribir_cursos_materia/".$curso['id']) ?>" class="btn btn-primary">Asignar Materia</a>
-<a class="btn btn-success" href="<?= base_url("generarExcel_inscripciones_materias/".$curso['id']) ?>">Generar Excel</a>
+<h2>Materia: <?= $materia['nombre'] ?></h2>
+<a class="btn btn-success" href="<?= base_url("#/".$materia['id']) ?>">Generar Excel</a>
 
 <div class="accordion accordion-flush" id="accordionFlushExample">
     <div class="accordion-item">
@@ -27,20 +27,12 @@
         <div class="accordion-body">
           <form class="row g-3" action="" >
             <div class="col-md-6">
-              <label for="inputEmail4" class="form-label">Nombre Materia</label>
-              <input type="text" class="form-control" id="nombre_materias" name="nombre_materias">
+              <label for="inputEmail4" class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="nombre_estudiante" name="nombre_estudiante">
             </div>
             <div class="col-md-6">
-              <label for="inputEmail4" class="form-label">Codigo Materia</label>
-              <input type="text" class="form-control" id="codigo_materias" name="codigo_materias">
-            </div>
-            <div class="col-md-6">
-              <label for="inputEmail4" class="form-label">Nombre Docente</label>
-              <input type="text" class="form-control" id="nombre_docentes" name="nombre_docentes">
-            </div>
-            <div class="col-md-6">
-              <label for="inputEmail4" class="form-label">Apellido Docente</label>
-              <input type="text" class="form-control" id="apellido_docentes" name="apellido_docentes">
+              <label for="inputEmail4" class="form-label">Apellido</label>
+              <input type="text" class="form-control" id="apellidos_estudiante" name="apellidos_estudiante">
             </div>
             <div class="col-12">
               <button type="submit" class="btn btn-primary">Buscar</button>
@@ -54,32 +46,28 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">Asignacion ID</th>
-      <th scope="col">Materia</th>
-      <th scope="col">Codigo</th>
-      <th scope="col">Docente</th>
+      <th scope="col">ID</th>
+      <th scope="col">Estudiante</th>
+      <th scope="col">Notas</th>
       <th scope="col">Estado</th>
       <th scope="col">Opciones</th>
     </tr>
   </thead>
   <tbody>
     
-    <?php foreach($materias_cursos as $materias_c){
+    <?php foreach($notas_materias as $notas_m){
         ?>
         <tr>
-        <th scope="row"><?= $materias_c['id'] ?></th>
-        <td><?= $materias_c['nombre_materias']?></td>
-        <td><?= $materias_c['codigo_materias'] ?></td>
-        <td><?= $materias_c['nombre_docentes'] . ' ' . $materias_c['apellido_docentes'] ?></td>
-        <td style="color:<?= $materias_c['estado']== '1' ? 'Green' : 'Red' ?>"><?php echo $materias_c['estado']== '1' ? 'Activo' : 'Inactivo' ?></td>
+        <th scope="row"><?= $notas_m['estudiantes_id'] ?></th>
+        <td><?= $notas_m['nombre_estudiante'] . ' ' . $notas_m['apellidos_estudiante'] ?></td>
+        <td><?= $notas_m['notas'] ?></td>
+        <td style="color:<?= $notas_m['estado']== '1' ? 'Green' : 'Red' ?>"><?php echo $notas_m['estado']== '1' ? 'Activo' : 'Inactivo' ?></td>
         <td><div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Opciones
             </button>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="<?= base_url('ver_materias_notas/'.$materias_c['materias_id']) ?>">ver</a></li>
-                <li><a class="dropdown-item" href="<?= base_url('edit_inscripcion_materia/'.$materias_c['id']) ?>">Editar</a></li>
-                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal" href="<?= base_url('eliminar_inscripcion_materia/'.$materias_c['id']) ?>">Eliminar</a></li>
+                <li><a class="dropdown-item" href="<?= base_url('#/'.$notas_m['id']) ?>">Guardar</a></li>
             </ul>
             </div>
         </td>
@@ -88,15 +76,15 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel"><?= $materias_c['materias_id'] . ' ' . $materias_c['docentes_id'] ?></h1>
+            <h1 class="modal-title fs-5" id="exampleModalLabel"><?= $notas_m['nombre_estudiante'] . ' ' . $notas_m['apellidos_estudiante'] . '/' . $notas_m['notas'] ?></h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            Estás seguro de eliminar esta inscripción? 
+            Estás seguro de eliminar esta nota? 
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <a href="<?= base_url('eliminar_inscripcion_materia/'.$materias_c['id']) ?>" class="btn btn-danger">Eliminar</a>
+            <a href="<?= base_url('#/'.$notas_m['id']) ?>" class="btn btn-danger">Eliminar</a>
           </div>
         </div>
       </div>

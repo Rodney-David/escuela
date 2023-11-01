@@ -22,9 +22,10 @@ class Materias_cursos extends Model{
                             ->paginate(15);
     }
 
-    public function verificarAsignacion($id){
+    public function verificarAsignacionMateria($id, $materia){
         return $this->select('materias_cursos.*')
-                            ->where('materias_id', $id)->countAllResults();
+                            ->where('cursos_id', $id)
+                            ->where('materias_id', $materia)->countAllResults();
     }
     
     public function verificarAsignacionCurso($id){

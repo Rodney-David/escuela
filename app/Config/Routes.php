@@ -50,6 +50,7 @@ $routes->get('/generarExcel_estudiantes', 'EstudiantesController::generarExcel')
 $routes->get('/generarExcel_estudiantes_Filtro/(:num)/', 'EstudiantesController::generarExcel_Filtro/$1/');
 $routes->get('/generarExcel_inscripciones/(:num)', 'CursosController::generarExcel/$1');
 $routes->get('/generarExcel_docentes', 'DocentesController::generarExcel');
+$routes->get('/generarExcel_inscripciones_materias/(:num)', 'CursosController::generarExcel_materias/$1');
 
 $routes->get('/docentes', 'DocentesController::index');
 $routes->get('/create_docentes', 'DocentesController::register');
@@ -64,3 +65,5 @@ $routes->post('/guardar_inscripcion_materia/(:num)', 'CursosController::guardarI
 $routes->get('/edit_inscripcion_materia/(:num)', 'CursosController::editar_inscripcion_materias/$1');
 $routes->post('/actualizar_inscripcion_materia/(:num)', 'CursosController::actualizarInscripcion_materias/$1');
 $routes->get('/eliminar_inscripcion_materia/(:num)', 'CursosController::eliminar_inscripcion_materias/$1');
+
+$routes->get('/ver_materias_notas/(:num)', 'CursosController::ver_materias_notas/$1');
