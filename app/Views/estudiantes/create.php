@@ -99,7 +99,7 @@
         var btn = document.getElementById("btnAnadir");
         var camposValidos = document.querySelectorAll('.is-valid').length;
 
-        if (camposValidos == 5) {
+        if (camposValidos == 6) {   
             btn.disabled = false;
         } else {
             btn.disabled = true;
